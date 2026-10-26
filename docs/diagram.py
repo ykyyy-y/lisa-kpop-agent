@@ -48,10 +48,11 @@ def architecture_svg() -> str:
         _box(490, 320, 210, 120, "🚆 Logistics", "list_events · get_logistics|airport → venue, fares,|lockers, show-day tips", size=13),
         _box(720, 320, 210, 120, "🎧 Streaming Coach", "list_releases|build_streaming_playlist|tracklists, official links, fair 스밍", size=13),
         _arrow(380, 275, 135, 318), _arrow(450, 275, 365, 318), _arrow(510, 275, 595, 318), _arrow(580, 275, 825, 318),
+        # specialist -> guard arrows first, so the dataset band is drawn over them and its text stays readable
+        _arrow(135, 440, 280, 513), _arrow(365, 440, 420, 513), _arrow(595, 440, 540, 513), _arrow(825, 440, 680, 513),
         f'<rect x="30" y="455" width="900" height="34" rx="10" fill="#faf7f8" stroke="{MUTED}" stroke-dasharray="4 4"/>',
         f'<text x="480" y="477" text-anchor="middle" font-size="12" fill="{MUTED}">dataset: events · fansign · releases · venues · setlists · vendors (JSON, sourced + SAMPLE rows)  —  agents cannot browse the web</text>',
         _box(150, 515, 660, 70, "Output guards (code, not prompts)", "official-link allowlist · fansign disclaimer · date grounding check|budget caps ($0.05/session, $2/day) · max 4 model calls per agent", fill=AMBER, stroke="#f0cf8f"),
-        _arrow(135, 440, 280, 513), _arrow(365, 440, 420, 513), _arrow(595, 440, 540, 513), _arrow(825, 440, 680, 513),
         "</svg>",
     ]
     return "\n".join(parts)

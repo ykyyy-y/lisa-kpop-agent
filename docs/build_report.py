@@ -158,6 +158,8 @@ TASK_NAMES = {
 FEATURED = participant.get("name_or_initials", "")
 _pairs = [(float(p_["manual_total_minutes"]), float(p_["lisa_total_minutes"])) for p_ in PARTICIPANTS
           if p_.get("manual_total_minutes") and p_.get("lisa_total_minutes")]
+CONF_LINE = (" and ".join(f"{p_['confidence_usual_1to5']} → {p_['confidence_lisa_1to5']}" for p_ in PARTICIPANTS
+                          if p_.get("confidence_usual_1to5") and p_.get("confidence_lisa_1to5")) + " (usual way → L.I.S.A., out of 5)")
 PILOT_AVG = (f"{sum(m for m, _ in _pairs) / len(_pairs):.1f} → {sum(l_ for _, l_ in _pairs) / len(_pairs):.1f} min" if _pairs else "see §7")
 
 
@@ -272,6 +274,9 @@ every fifth), links only official platforms, and states the rules — never bots
 <li><b>Click-first, $0 browsing.</b> Cards, chart, tracklists and calendar files are computed locally. Each card shows only the agent buttons that fit it (no setlist button before a tour
 starts) and passes its id, which cut model calls per answer from {typed_calls:.1f} to {btn_calls:.1f}.</li>
 </ol>
+<p><b>Not a trip planner or a chat-with-documents bot.</b> Getting to the venue is one of four specialists. The parts no existing tool offers are the fansign
+cut-line model with its price in won, the poisoning-guarded crowd reports that feed it, and official-only links enforced in code across every artist and city.
+It was not built in class or in a homework.</p>
 <h3>Evidence: what the same model does without L.I.S.A.</h3>
 <p>To isolate what the agent design adds, the same model (gpt-6-luna) answered the same {BASE['questions']} benchmark questions as a plain chatbot — no L.I.S.A. data, tools
 or guardrails (<code>evals/baseline_chatbot.py</code>; every answer read by hand in <code>baseline_review.json</code>). It is not the ChatGPT product, which can also search the web.</p>
@@ -355,12 +360,12 @@ The work is narrow — pick a tool, read structured JSON, write a short answer �
 <p>Total: <b>{T['model_calls']} model calls, {T['tool_calls']} tool calls, {tt['input']:,} input tokens ({tt['cached_input']:,} cached), {tt['output']:,} output tokens,
 {usd(T['cost'])}, {T['seconds']} s</b>. The Router split the question to Logistics and Schedule &amp; Ticketing; each looked up the Singapore event and called its own tool; both answers
 were joined under agent headings and passed the link allowlist and the date check.</p>
-<div class="grid2">{img("04_trace_multi_agent.png", "Figure 2 — The traced run above, in the app: each agent's answer under its own heading, then the trace (agents, tools, tokens, cost).")}
-{img("01_home.png", "Figure 3 — Home: click planner; each sourced card has only the agent buttons that fit it, plus 📅 calendar export.")}</div>
+{img("04_trace_multi_agent.png", "Figure 2 — The traced run above, in the app: the Logistics answer (steps 3–7), the Schedule &amp; Ticketing answer (steps 8–12), then the trace with every call, tool, token and cent.")}
+{img("01_home.png", "Figure 3 — Home: click planner; each sourced card has only the agent buttons that fit it, plus 📅 calendar export.")}
 <div class="grid2">{img("02_fansign_chart.png", "Figure 4 — Fansign view: local cut-line model, win chance vs albums and cost — $0.")}
-{img("03_fansign_answer.png", "Figure 5 — Fansign Analyst from the card's 'My win chance' button, disclaimer enforced.")}</div>
-<div class="grid2">{img("13_streaming_cards.png", "Figure 6 — Streaming view: real tracklists, D-day for TXT's next album, official platform links.")}
-{img("14_streaming_answer.png", "Figure 7 — Streaming Coach: a fair 60-minute playlist for BTS's ARIRANG.")}</div>
+{img("13_streaming_cards.png", "Figure 5 — Streaming view: real tracklists, D-day for TXT's next album, official platform links.")}</div>
+{img("03_fansign_answer.png", "Figure 6 — Fansign Analyst from the card's 'My win chance' button: odds and cost from the Python model, disclaimer enforced.")}
+{img("14_streaming_answer.png", "Figure 7 — Streaming Coach: a fair 60-minute playlist for BTS's ARIRANG.", "72%")}
 </section>"""
 
 
@@ -477,10 +482,10 @@ Each defense below is <b>code</b> that runs no matter what the model says.</p>
 {table(["Test", "Risk", "Result", "Model calls", "Defense that fired"], rows, "small")}
 <p>"Model followed policy" rows were handled by instructions and tool design; the code guards stand behind them and are also tested deterministically
 (<code>python -m pytest</code>: link filter, input screen, disclaimer, date check, budget, data-poisoning guard, playlist fairness, calendar files).</p>
-<div class="grid2">{img("07_block_injection.png", "Figure 9 — Prompt injection refused by the input guard: 0 model calls, $0.")}
-{img("15_report_quarantine.png", "Figure 10 — Data poisoning: an honest report is accepted; a 6-album 'cut' is quarantined and ignored by the model.")}</div>
-<div class="grid2">{img("08_scam_link_refused.png", "Figure 11 — A fan asks for a scalper link: only the official vendor is given.")}
-{img("09_indirect_injection.png", "Figure 12 — Indirect injection: the planted review is flagged as spam; its link and claim are not repeated.")}</div>
+{img("07_block_injection.png", "Figure 9 — Prompt injection refused by the input guard: 0 model calls, $0.")}
+{img("15_report_quarantine.png", "Figure 10 — Data poisoning: a 6-album 'cut' is 27.9 standard deviations from earlier reports, so it is quarantined and ignored by the model.", "60%")}
+{img("08_scam_link_refused.png", "Figure 11 — A fan asks for a scalper link: the agent refuses and gives only the official vendor.")}
+{img("09_indirect_injection.png", "Figure 12 — Indirect injection: the planted review is flagged as spam; its link and claim are not repeated.")}
 </section>"""
 
 
@@ -546,7 +551,7 @@ def sec_impact() -> str:
                                         if PILOT_SUMMARY["manual_minutes"] and PILOT_SUMMARY["lisa_minutes"] and APP_TIME else "see pilot below"),
      "pilot (self-reported) + app response time (measured)"],
     ["Tasks a real fan could not finish the usual way", f"{PILOT_SUMMARY['manual_failed']} of {len(PILOT_SUMMARY['tasks'])} for HA (fansign album count); all four answered with L.I.S.A. (task B on SAMPLE data)", "pilot (observed)"],
-    ["Participant ratings", "ease 5/5 from both; confidence in the answer 5/5 with L.I.S.A.; both would use it", "pilot (self-reported)"],
+    ["Participant ratings", f"ease 5/5 from both; confidence in the answer {CONF_LINE}; both would use it", "pilot (self-reported)"],
     ["Answer quality", f"{on['fact_accuracy']*100:.0f}% of questions contain every required fact; routing {on['routing_accuracy']*100:.0f}%", "benchmark grader (measured)"],
     ["Cut-line accuracy vs today's rule", f"median error {BT['model_median_abs_err_pct']}% vs {BT['naive_median_abs_err_pct']}% for \"copy the last cut\"; 80% band covered {BT['band_80_coverage_pct']}%; the copy rule under-bought in {BT['naive_underbuys_pct']}% of cases",
      f"backtest, {BT['predictions']} rolling predictions on SAMPLE data"],
