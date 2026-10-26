@@ -114,7 +114,8 @@ def build() -> Path:
 <h1>L.I.S.A.</h1><h3>Live Idol Schedule &amp; Analytics</h3>
 <p>One AI agent team for K-pop fans — the whole fan cycle in one place, with official links only.</p>
 <div class="chips"><span>🎫 tickets &amp; presales</span><span>✍️ fansign odds in ₩</span><span>🎧 fair comeback streaming</span><span>🚆 airport → venue</span><span>📅 calendar</span></div>
-<p class="small">{R.AUTHOR} · MGT 409 AI for Managers · Yale SOM · <a href="{R.REPO_URL}">{R.REPO_URL.replace("https://", "")}</a></p>
+<p class="small">{R.AUTHOR} · MGT 409 AI for Managers · Yale SOM</p>
+<p class="repo">Public repo: <a href="{R.REPO_URL}">{R.REPO_URL}</a><br><code>git clone {R.REPO_URL}.git</code></p>
 {notes(N1)}</section>""",
         f"""<section><h2>The problem: one ARMY, five apps</h2>
 <div class="cols"><div>
@@ -186,7 +187,8 @@ def build() -> Path:
 <li>Data collected by hand on 2026-10-25 — no auto-refresh</li><li>Fansign cut history is SAMPLE until fans report</li><li>3 artists · 5 cities · 4 albums</li><li>No live seat inventory, charts or transit delays</li></ul></div>
 <div><h4>Next</h4><ul class="small"><li>Seed the report form from fan accounts; reviewer queue for quarantined reports</li><li>Daily ingestion of official notices (human-checked)</li>
 <li>Presale, 취켓팅 and release-time alerts</li><li>Hosted version with a shared answer cache</li></ul></div></div>
-<p>Thank you 💗 — try it: <code>{R.REPO_URL.replace("https://", "")}</code> → <code>python app.py</code></p>
+<p>Thank you 💗</p>
+<p class="repo">Public repo: <a href="{R.REPO_URL}">{R.REPO_URL}</a><br><code>git clone {R.REPO_URL}.git</code> → README (≈3-minute setup) → <code>python app.py</code></p>
 {notes(N10)}</section>""",
     ]
     css = """
@@ -217,6 +219,8 @@ def build() -> Path:
 .reveal .bar-val{font-weight:700;color:#c73a6e}
 .reveal .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
 .reveal .chips span{background:white;border:1px solid #ffd0e0;border-radius:999px;padding:6px 14px;font-size:.62em;color:#c73a6e;font-weight:700}
+.reveal .repo{font-size:.55em;background:white;border:2px solid #f9a8c6;border-radius:12px;padding:8px 14px;display:inline-block;margin-top:10px}
+.reveal .repo code{font-size:.95em;color:#c73a6e}
 .reveal .gloss{margin-top:14px;font-size:.5em;color:#7d6f76;background:white;border:1px dashed #f9a8c6;border-radius:12px;padding:8px 12px;line-height:1.5}
 .reveal table.cmp{font-size:.56em;margin-bottom:18px}
 """

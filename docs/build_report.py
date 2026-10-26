@@ -185,7 +185,7 @@ def sec_title() -> str:
   comeback <b>streaming plans</b>, and airport-to-venue logistics — with code-enforced protection from scam links and overspending.</p>
   <table class="meta-table">
     <tr><th>Author</th><td>{AUTHOR} (Yale SOM MBA)</td></tr>
-    <tr><th>Repository</th><td>{repo}</td></tr>
+    <tr><th>Repository</th><td>{repo} <b>(public)</b><br><code>git clone {esc(REPO_URL)}.git</code></td></tr>
     <tr><th>App</th><td>Runs locally from a fresh clone in about 3 minutes: <code>pip install -r requirements.txt</code> → <code>python app.py</code> → http://127.0.0.1:8050 (README)</td></tr>
     <tr><th>Model</th><td><code>gpt-6-luna</code> through Portkey (course key); OpenAI Responses API with function tools</td></tr>
     <tr><th>Evidence</th><td>{on['questions']}-question benchmark run twice · 4-way cache experiment on a 30-request fan day · {total} red-team tests ·
@@ -628,7 +628,7 @@ def build() -> Path:
     body = "".join([sec_title(), sec_motivation(), sec_novelty(), sec_agents(), sec_tokenomics(), sec_safety(), sec_impact(), sec_limits(), sec_rubric()])
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>L.I.S.A. — Final Project Report</title><style>{CSS}</style></head><body><main>{body}
-<footer>L.I.S.A. · {AUTHOR} · MGT 409 AI for Managers, Yale SOM · Numbers generated from evals/results on {esc(B['run_at'])} by docs/build_report.py.
+<footer>L.I.S.A. · {AUTHOR} · MGT 409 AI for Managers, Yale SOM · Public repo: <a href="{REPO_URL}">{REPO_URL}</a> · Numbers generated from evals/results on {esc(B['run_at'])} by docs/build_report.py.
 Concert, ticketing and album data from public reporting (sources linked in the app); fansign rows are SAMPLE data. AI tools helped write code and prose; every number was produced by the scripts named above.</footer></main></body></html>"""
     out = ROOT / "report.html"
     out.write_text(page, encoding="utf-8")
