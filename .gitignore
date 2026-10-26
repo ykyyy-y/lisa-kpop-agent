@@ -13,3 +13,6 @@ runtime/
 
 # local copies made for Canvas upload (the repo keeps report.html / slides.html)
 *_1026.html
+
+# demo video for Canvas (not part of the repo)
+*.mp4
