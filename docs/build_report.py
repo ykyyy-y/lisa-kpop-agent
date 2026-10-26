@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "docs"))
 
 from diagram import architecture_svg  # noqa: E402
+from glossary import GLOSSARY  # noqa: E402
 
 from lisa import data, fansign_model  # noqa: E402
 from lisa.config import PRICES  # noqa: E402
@@ -41,6 +42,8 @@ B = json.loads((RES / "benchmark.json").read_text(encoding="utf-8"))
 S = json.loads((RES / "safety.json").read_text(encoding="utf-8"))
 T = json.loads((RES / "trace_example.json").read_text(encoding="utf-8"))
 BT = json.loads((RES / "backtest.json").read_text(encoding="utf-8"))["summary"]
+BASE = json.loads((RES / "baseline_chatbot.json").read_text(encoding="utf-8"))["summary"]
+BREV = json.loads((RES / "baseline_review.json").read_text(encoding="utf-8"))
 APP_TIME = json.loads((RES / "pilot_app_time.json").read_text(encoding="utf-8")) if (RES / "pilot_app_time.json").exists() else None
 
 
@@ -141,6 +144,9 @@ def pilot_minutes() -> dict:
 
 
 PILOT = pilot_minutes()
+_on_rows = [r for r in B["prompt_cache_on"]["rows"] if r["expected_agents"]]
+LISA_ON = {"n": len(_on_rows), "strict": sum(1 for r in _on_rows if r["facts_ok"] and r["routing_ok"])}
+LISA_ON["reviewed"] = LISA_ON["strict"] + sum(1 for r in _on_rows if not r["facts_ok"] and r["question"] in MISS_REVIEW)
 TASK_NAMES = {
     "A": "BTS Singapore: dates, sale times, prices, official site",
     "B": "BTS video-call fansign: albums needed and cost",
@@ -192,38 +198,47 @@ def sec_motivation() -> str:
     if participant:
         who = f"""<div class="person"><b>Meet the user — {esc(participant.get('name_or_initials', 'pilot participant'))}.</b>
 {esc(participant.get('fandom', ''))}. {esc(participant.get('how_they_do_it_today', ''))}
-{f"Last year they spent about ₩{esc(participant['album_spend_last_year_krw'])} on albums." if participant.get('album_spend_last_year_krw') else ''}
+In the pilot the usual way took {esc(participant.get('manual_total_minutes', '?'))} minutes and {PILOT_SUMMARY['manual_sites']}+ sites and apps, and the fansign
+question stayed unanswered ("100, 200 or 300 albums?").
 {f'<i>"{esc(participant["quote"])}"</i>' if participant.get('quote') else ''}</div>"""
     else:
-        who = """<div class="person"><b>The person.</b> An ARMY (BTS fan) in Seoul who will fly to Singapore for <i>ARIRANG</i> in December,
-has entered BTS's video-call fansign lottery, and streams every comeback. The pilot participant (section 7) is this kind of fan.</div>"""
-    sg = data.event("bts-singapore-2026")["ticketing"]["price_note"]
+        who = ""
+    sg = data.event("bts-singapore-2026")["ticketing"]["price_note"].rstrip(".")
+    g = GLOSSARY
+    half = (len(g) + 1) // 2
+    gl_rows = [[f"<b>{esc(a)}</b>", esc(b), f"<b>{esc(c)}</b>" if c else "", esc(d)]
+               for (a, b), (c, d) in zip(g[:half], g[half:] + [("", "")] * (half - len(g[half:])))]
+    mm, lm = PILOT_SUMMARY["manual_minutes"], PILOT_SUMMARY["lisa_minutes"]
+    pilot_cost = (f"Pilot: {' and '.join(f'{m:.0f}' for m in mm)} min and 4–11+ sources per fan for four routine tasks"
+                  if mm else "Pilot (section 7)")
     return f"""
-<section><h2>2. Motivation — who has the problem</h2>
+<section><h2>2. Motivation — who has the problem, and why it hurts</h2>
+<p><b>Who.</b> K-pop fans who follow an artist through a full cycle — comeback, streaming, fansign, concert trip — increasingly across borders:
+BTS's <i>ARIRANG</i> tour alone runs from Goyang to Los Angeles, London and São Paulo, then Kaohsiung, Bangkok, Kuala Lumpur, Singapore and Jakarta — each city with its own ticket vendor, presale rules and time zone.
+For a fan, the artist is one; the information is scattered over a dozen apps.</p>
 {who}
-<p>Around every comeback and trip, the same fan has to answer five questions, and each answer lives in a different place:</p>
-{table(["Question", "Where fans look today", "What goes wrong"], [
-    ["When and where — can I still get a ticket, at what price?", "Weverse notice per artist, then Ticketmaster SG / ThaiTicketMajor / tixCraft / NOL", "Every city has a different vendor, presale rule and time zone; presale windows are missed (피켓팅 실패)"],
-    ["How many albums to win a fansign (팬싸컷)?", "X threads after each event, fan spreadsheets", "No single source; fans over-buy to be safe — or under-buy by copying the last cut"],
-    ["What do I stream for the comeback, and where? (스밍)", "Image guides posted on X, then each platform separately", "Tracklists and links retyped by hand; \"streaming services\" and bots are offered"],
-    ["Airport → venue, where does my suitcase go?", "Google / Naver Maps, travel blogs", "Maps don't know show-day crowds, best exits or which lockers fill first"],
-    ["\"Where can I still buy?\"", "Resale sites, DMs on X", "Scalpers and fake-ticket scams target exactly this moment"],
-])}
-<p><b>What it costs.</b></p>
-<ul>
-<li><b>Money — tickets.</b> One BTS Singapore show costs {esc(sg)}. In Bangkok, where face value is THB 3,300–7,800, resale listings started around £515
-(<a href="https://www.stereoboard.com/bts-tickets/bangkok/2026-12-03">Stereoboard</a>) — several times face value.</li>
-<li><b>Money — albums.</b> Fansign entries are bought with albums: Korean press reports fans spending <i>"hundreds of thousands to millions of won"</i> on one album
-(<a href="https://www.koreatimes.co.kr/amp/entertainment/20240510/k-pop-fan-events-fuel-costly-race-for-face-time-with-idols">Korea Times</a>); one fan spent ≈US$2,200 to enter eight video-call fansigns and won two
-(<a href="https://uk.news.yahoo.com/young-k-pop-fans-around-123000726.html">Insider via Yahoo</a>); for popular groups fans buy <i>"dozens to hundreds"</i> per event
-(<a href="https://sports.khan.co.kr/en/article/202601211720327">Sports Kyunghyang, 2026</a>), and unwanted copies are dumped near subway stations
-(<a href="https://mbiz.heraldcorp.com/article/10859218">Herald Business, 2026</a>). In L.I.S.A.'s (SAMPLE) BTS video-call data, a 50% chance needs {FS_P50['albums']} albums — ₩{FS_P50['cost_krw']:,}.</li>
-<li><b>Risk.</b> BTS's <i>ARIRANG</i> tour drew the most scalping reports of any event in the year to August 2026
-(<a href="https://www.koreatimes.co.kr/entertainment/k-pop/20260910/bts-arirang-tour-tops-ticket-scalping-reports-over-past-year">Korea Times</a>), and police arrested a reseller of 8,967 K-pop tickets
-(<a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/18/man-who-resold-nearly-9000-k-pop-tickets-for-us17mil-in-south-korea-arrested">The Star</a>).</li>
-<li><b>Time.</b> Building L.I.S.A.'s dataset for three artists needed <b>{N_SOURCES} different websites</b> ({len(SOURCES)} source pages: tour masterlist, ticketing reports for four
-countries, label and press tracklists) plus transit sites — the same lookups every travelling fan repeats alone. The pilot in section 7 times it with a real fan.</li>
-</ul>
+<h3>Pain points</h3>
+{table(["Pain point", "When it bites", "What it costs (evidence)", "What L.I.S.A. does"], [
+    ["<b>1. Information is scattered</b> over Weverse, vendor sites, X, fan cafés and maps", "Every comeback and every trip",
+     esc(pilot_cost) + "; one fan could not finish one task at all", "One app: sourced cards + 4 agents; card buttons answer about that exact event"],
+    ["<b>2. Fansign albums are a guess</b> (팬싸컷)", "Every fansign draw",
+     "Fans spend <i>\"hundreds of thousands to millions of won\"</i> on one album (<a href=\"https://www.koreatimes.co.kr/amp/entertainment/20240510/k-pop-fan-events-fuel-costly-race-for-face-time-with-idols\">Korea Times</a>); "
+     "one fan ≈US$2,200 for eight video-call draws, two wins (<a href=\"https://uk.news.yahoo.com/young-k-pop-fans-around-123000726.html\">Insider</a>); unwanted albums dumped near stations "
+     "(<a href=\"https://mbiz.heraldcorp.com/article/10859218\">Herald Business</a>)",
+     f"Cut-line model: albums for 50/80/90% with the cost in won; learns from fan reports (poisoning-guarded)"],
+    ["<b>3. Presale rules differ per city</b> (선예매 / 일반예매)", "Each tour announcement",
+     "BTS Asia: Ticketmaster SG, ThaiTicketMajor, tixCraft — different presale days, times and fees", "Sale times, prices and the official vendor on every card; 📅 calendar export"],
+    ["<b>4. Scalpers and scams</b> (리셀 · 암표)", "After a sell-out",
+     "<i>ARIRANG</i> drew the most scalping reports of any event (<a href=\"https://www.koreatimes.co.kr/entertainment/k-pop/20260910/bts-arirang-tour-tops-ticket-scalping-reports-over-past-year\">Korea Times</a>); "
+     "Bangkok face value THB 3,300–7,800 vs resale from ≈£515 (<a href=\"https://www.stereoboard.com/bts-tickets/bangkok/2026-12-03\">Stereoboard</a>)",
+     "Only allow-listed official links can reach the fan — enforced in code"],
+    ["<b>5. Comeback streaming by hand</b> (스밍)", "Comeback week", "Tracklists and links retyped from image guides; bots and \"streaming services\" offered", "Fair playlist from the real tracklist, official platform links, no bots"],
+    ["<b>6. Travel on show day</b>", "Concert day abroad", "Maps don't know show-day crowds, best exits or which lockers fill first", "Airport → venue route, fare, lockers, show-day tip"],
+], "small")}
+<p>One BTS Singapore ticket costs {esc(sg)}; in L.I.S.A.'s (SAMPLE) BTS video-call data a 50% fansign chance needs {FS_P50['albums']} albums (₩{FS_P50['cost_krw']:,}).
+The money at stake per fan per cycle is large, and the two most expensive mistakes — over-buying albums and buying from scalpers — happen exactly where information is worst.</p>
+<h3>A 30-second fandom glossary</h3>
+{table(["Term", "Meaning", "Term", "Meaning"], gl_rows, "small glossary")}
 </section>"""
 
 
@@ -253,6 +268,19 @@ every fifth), links only official platforms, and states the rules — never bots
 <li><b>Click-first, $0 browsing.</b> Cards, chart, tracklists and calendar files are computed locally. Each card shows only the agent buttons that fit it (no setlist button before a tour
 starts) and passes its id, which cut model calls per answer from {typed_calls:.1f} to {btn_calls:.1f}.</li>
 </ol>
+<h3>Evidence: what the same model does without L.I.S.A.</h3>
+<p>To isolate what the agent design adds, the same model (gpt-6-luna) answered the same {BASE['questions']} benchmark questions as a plain chatbot — no L.I.S.A. data, tools
+or guardrails (<code>evals/baseline_chatbot.py</code>; every answer read by hand in <code>baseline_review.json</code>). It is not the ChatGPT product, which can also search the web.</p>
+{table(["", "Plain chatbot (same model)", "L.I.S.A."], [
+    ["Answered correctly (on-topic questions, read by hand)", f"<b>{BREV['correct']} of {BREV['on_topic_questions']}</b>", f"<b>{LISA_ON['reviewed']} of {LISA_ON['n']}</b> ({LISA_ON['strict']} by the strict grader)"],
+    ["Declined or asked for more details", str(BREV['declined_or_asked_for_details']), "0"],
+    ["<b>Stated wrong specifics with confidence</b>", f"<b>{BREV['confidently_wrong']}</b>", "0 (date check + tools-only policy)"],
+    ["Fansign odds with a cost", "No — asked for winners and total entries", "Yes — albums for 50/80/90% and the won amount"],
+], "small")}
+<ul>{"".join(f"<li><i>{esc(x['question'])}</i> — plain chatbot: <b>{esc(x['said'])}</b>; actual: {esc(x['actual'])}.</li>" for x in BREV['confidently_wrong_examples'])}</ul>
+<p><b>Why now.</b> Tours have gone global and stadium-sized, so fans buy from foreign vendors in foreign time zones; scalping became serious enough that Korea raised fines
+to up to 50× the resale price in August 2026 (<a href="https://www.scmp.com/week-asia/lifestyle-culture/article/3360219/south-korean-ticket-touts-face-music-when-new-penalties-come-play">SCMP</a>);
+and fansign lotteries keep pushing album spending up. A fan needs one trustworthy place — exactly what general chatbots, single-artist apps and social media do not provide.</p>
 <p><b>Why it matters.</b> The fan's costly mistakes — over-spending on albums, missing a presale, falling for a resale scam — are exactly where a general chatbot is weakest,
 and where L.I.S.A. relies on code and sourced data rather than the model's judgment.</p>
 </section>"""
@@ -541,7 +569,8 @@ def sec_rubric() -> str:
     return f"""
 <section><h2>Appendix — where the evidence is</h2>
 {table(["Rubric row", "Evidence in this report", "Evidence in the repo"], [
-    ["Novelty + real-world value", "§2 named user and costs with sources; §3 comparison with named products; five differences", "app.py — fansign odds, report form, streaming coach, calendar"],
+    ["Novelty + real-world value (Tier 3)", "§2 real users, six pain points with sources, glossary; §3 named products, plain-chatbot test (3/15 vs 94%), five differences; §7 two real fans, 36.5 → 5.5 min; §5 platform-level cost",
+     "app.py — fansign odds, report form, streaming coach, calendar; evals/baseline_chatbot.py"],
     ["It works / staff can run it", "Figures 2–11 from the running app", "README (≈3-minute setup), .env lookup here then one level up, tests/ (pytest)"],
     ["Look + feel", "Figures 3–7, mobile layout in repo screenshots", "assets/style.css, docs/screenshots/12_mobile.png"],
     ["Agent design", "§4 diagram, roles, design reasons, coverage table, traced run", "lisa/agents.py, lisa/tools.py, evals/results/trace_example.json"],
@@ -571,6 +600,7 @@ table{border-collapse:collapse;width:100%;margin:10px 0 14px;font-size:13.5px}
 th{background:var(--pink-l);text-align:left;padding:7px 9px;color:var(--ink)}
 td{border-bottom:1px solid var(--line);padding:7px 9px;vertical-align:top}
 table.small{font-size:12.5px}
+table.glossary td:nth-child(odd){white-space:nowrap;color:var(--pink-d)}
 table.trace-table td:first-child{color:var(--pink);font-weight:700}
 .meta-table th{width:130px;background:none;color:var(--muted)}
 .meta-table td,.meta-table th{border-bottom:1px solid var(--line)}
@@ -584,10 +614,12 @@ figcaption{font-size:12.5px;color:var(--muted);margin-top:6px}
 details{margin:10px 0}summary{cursor:pointer;color:var(--pink-d);font-weight:700}
 .missing{padding:20px;border:2px dashed #e99;color:#b33}
 footer{color:var(--muted);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
-@media print{body{background:white;font-size:12.5px}main{box-shadow:none;padding:0 4mm;max-width:none}
- h2{margin-top:20px;page-break-after:avoid}h3{page-break-after:avoid}figure,.diagram,tr{page-break-inside:avoid}
- table{font-size:11.5px}td,th{padding:4px 6px}.grid2 figure img{max-height:420px;max-width:100%}figure img{max-height:520px;max-width:100%}
- .diagram svg{max-height:480px}.cover h1{font-size:32px}}
+@media print{body{background:white;font-size:12.6px;line-height:1.5}main{box-shadow:none;padding:0 3mm;max-width:none}
+ h2{margin:14px 0 6px;font-size:21px;page-break-after:avoid}h3{margin:12px 0 5px;font-size:15px;page-break-after:avoid}p{margin:6px 0}ul,ol{margin:6px 0}
+ figure,.diagram,tr{page-break-inside:avoid}figure{margin:8px 0}
+ table{font-size:11.4px;margin:6px 0 10px}td,th{padding:3px 5px}table.small{font-size:11px}
+ .grid2 figure img{max-height:330px;max-width:100%}figure img{max-height:400px;max-width:100%}
+ .diagram svg{max-height:400px}.cover h1{font-size:30px}.one-liner{font-size:14px}}
 @media screen and (max-width:800px){main{padding:24px}.grid2{grid-template-columns:1fr}}
 """
 

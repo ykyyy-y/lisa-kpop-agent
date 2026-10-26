@@ -1,0 +1,17 @@
+{
+  "_about": "Hand review of every answer in baseline_chatbot.json (same model, no L.I.S.A. data or tools). The off-topic kimchi question is excluded: answering it is correct for a general chatbot.",
+  "reviewed_on": "2026-10-26",
+  "on_topic_questions": 15,
+  "correct": 3,
+  "correct_notes": "Changi route and the ARIRANG tracklist (strict grader), plus the Incheon -> KSPO DOME route via 공항철도 (AREX) and Line 5 at Gongdeok, which is a valid route the English string match missed.",
+  "declined_or_asked_for_details": 8,
+  "declined_notes": "TXT Seoul dates, both setlists, both fansign odds questions, LISA fansign, Incheon trip + ticket status, TXT comeback playlist.",
+  "confidently_wrong": 3,
+  "confidently_wrong_examples": [
+    {"question": "How much are BTS Singapore tickets and when did the general sale open?", "said": "S$168-S$428; general sale opened 24 April 2026 at 10am", "actual": "SGD 148-388; general sale 2026-06-05 12:00 SGT"},
+    {"question": "Where is LISA's Las Vegas residency and what are the dates?", "said": "November 13, 14, 20, 21, 27 and 28, 2026", "actual": "2026-11-13, 14, 27, 28 (the 20th and 21st do not appear in any source)"},
+    {"question": "TXT 서울 콘서트 일반예매 언제였어?", "said": "a 2025 tour (ACT:TOMORROW), general sale June 27, 8 pm", "actual": "STEAL THE WIND, general sale 2026-10-06 20:00 KST"}
+  ],
+  "imprecise": 1,
+  "imprecise_notes": "Kaohsiung: MRT to Zuoying (R16) then a taxi, instead of the stadium's own station R17 World Games."
+}

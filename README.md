@@ -21,6 +21,44 @@ Course: MGT 409 AI for Managers, Yale SOM. Report: [`report.html`](report.html) 
 
 ---
 
+## Why L.I.S.A.? The pain points
+
+K-pop fans follow an artist through a whole cycle — **comeback → streaming → fansign → concert trip** —
+increasingly across borders (BTS's *ARIRANG* tour alone sells through different vendors in Taiwan, Thailand and
+Singapore). For the fan the artist is one; the information is spread over a dozen apps.
+
+| Pain point | What it costs | What L.I.S.A. does |
+|---|---|---|
+| Information scattered over Weverse, vendor sites, X, fan cafés and maps | Pilot: two real fans needed **40 and 33 minutes** and 4–11+ sources for four routine tasks; one could not finish the fansign task at all | One app; with L.I.S.A. the same tasks took **5 and 6 minutes** (85% less) |
+| Fansign albums are a guess (팬싸컷) | Fans spend "hundreds of thousands to millions of won" on one album (Korea Times) | Albums for a 50 / 80 / 90 % chance, with the cost in won; learns from fan reports |
+| Presale rules differ by city and vendor | Missed presale windows (피켓팅 실패) | Sale times, prices and official vendor on every card; 📅 calendar export |
+| Scalpers and scams after a sell-out | Bangkok resale from ≈£515 vs THB 3,300–7,800 face value | Only allow-listed official links can reach the fan (enforced in code) |
+| Comeback streaming done by hand | Tracklists retyped from image guides; bots offered | Fair playlist from the real tracklist, official platform links |
+| Show-day travel abroad | Maps don't know crowds, exits or lockers | Route, fare, lockers and a show-day tip |
+
+**Why not just ask a chatbot?** The same model without L.I.S.A.'s data and tools answered **3 of 15** on-topic
+questions correctly and stated wrong specifics with confidence on 3 (e.g. BTS Singapore "S$168–428, general sale
+24 April" — actually SGD 148–388, 5 June). With L.I.S.A.: **15 of 15** (`evals/baseline_chatbot.py`).
+
+## Fandom glossary (30 seconds)
+
+| Term | Meaning |
+|---|---|
+| Comeback (컴백) | An artist's new release and the promotion period around it |
+| ARMY · MOA · LILIES | Fandom names of BTS, TXT and LISA |
+| Weverse / membership | HYBE's official fan platform; paid membership unlocks fan-club presales |
+| 선예매 / 일반예매 | Fan-club presale / general sale — separate rounds, rules and times |
+| 피켓팅 ("blood ticketing") | Ticketing so competitive that seats are gone within seconds |
+| 취켓팅 | Catching tickets released later from cancelled or unpaid orders |
+| 팬싸 · 팬사인회 (fansign) | Small event where winners meet the artist for an autograph — offline or by video call (영통팬싸) |
+| 응모 (entry) | Each album bought at the hosting retailer is one entry in the fansign draw |
+| 팬싸컷 (cut line) | Album count of the lowest winner — the number every fan tries to beat |
+| 스밍 (streaming) | Streaming a new release, often from shared playlists, to lift charts and music-show scores |
+| 음방 1위 (music-show win) | Weekly TV music shows crown a #1 using digital, album and broadcast scores |
+| 리셀 · 암표 | Resale above face value / scalping — a common route to scams |
+
+---
+
 ## 1. Run it locally (about 3 minutes)
 
 You need **Python 3.10+** and a `.env` file containing `PORTKEY_API_KEY`.

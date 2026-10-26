@@ -1,0 +1,172 @@
+{
+  "summary": {
+    "questions": 16,
+    "fact_accuracy": 0.125,
+    "answers_with_unofficial_links": 0,
+    "avg_cost": 0.0002183,
+    "model": "gpt-6-luna",
+    "run_at": "2026-10-26 02:21"
+  },
+  "rows": [
+    {
+      "question": "When does TXT play in Seoul and is it sold out?",
+      "facts_ok": false,
+      "facts_hit": 1,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0001933,
+      "seconds": 5.32,
+      "text": "Which TXT event or date do you mean? There can be several Seoul concerts, and whether tickets are sold out changes quickly. Share the event link or year and I can help check the details."
+    },
+    {
+      "question": "TXT 서울 콘서트 일반예매 언제였어?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0002218,
+      "seconds": 5.83,
+      "text": "2025년 **〈TOMORROW X TOGETHER WORLD TOUR 〈ACT:TOMORROW〉 IN SEOUL〉** 기준으로 일반예매는 **6월 27일 오후 8시**였어. 다른 서울 공연을 말한 거라면 공연명이나 연도를 알려줘!"
+    },
+    {
+      "question": "Where is LISA's Las Vegas residency and what are the dates?",
+      "facts_ok": false,
+      "facts_hit": 1,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.000239,
+      "seconds": 4.31,
+      "text": "LISA’s Las Vegas residency is at **The Colosseum at Caesars Palace**. The announced dates are **November 13, 14, 20, 21, 27 and 28, 2026**."
+    },
+    {
+      "question": "What setlist did BTS play on the ARIRANG tour?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0001694,
+      "seconds": 3.89,
+      "text": "I can’t reliably verify the **ARIRANG tour setlist** from the information available to me. Setlists can also change between shows. If you tell me the city and concert date—or share a setlist link—I can help format or check that specific show."
+    },
+    {
+      "question": "What songs will TXT play on the STEAL THE WIND tour?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0001744,
+      "seconds": 4.05,
+      "text": "I can’t verify an official setlist for TXT’s **STEAL THE WIND** tour. Setlists are often announced only once the tour begins, and they can vary by show. If you share the tour announcement or a date/city, I can help check which songs are confirmed—or suggest likely picks based on TXT’s recent setlists."
+    },
+    {
+      "question": "How many albums do I need for an 80% chance at the TXT Withmuu fansign?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0001362,
+      "seconds": 3.06,
+      "text": "There isn’t a reliable fixed number without the specific TXT Withmuu event’s number of winners and total entries. Each album usually gives one raffle entry, and your odds depend on how many entries everyone else submits.\n\nIf there are **W winners** and about **A other entries**, the chance of winning at least once with **n albums** is approximately:\n\n**1 − (1 − W/(A + n))ⁿ**\n\nTell me the event’s winner count and any estimate of total applicants or entries, and I can work out an 80% estimate. Without that information, any album number would just be a guess."
+    },
+    {
+      "question": "If I buy 100 albums for the BTS Ktown4u video call, what is my chance?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0001447,
+      "seconds": 3.36,
+      "text": "It depends on the specific BTS video-call event, how many winners there are, and how many total eligible album entries other fans submit. Buying 100 albums usually means 100 lottery entries—but it doesn’t guarantee a call.\n\nIf the draw selects **W winners from N total entries**, and all 100 of your entries are eligible, your chance is:\n\n**1 − C(N − 100, W) / C(N, W)**\n\nFor a rough estimate when the pool is large, that’s about **1 − (1 − 100/N)^W**.\n\nKtown4u’s event notice should say how many winners there are and whether each album counts as an entry. Share those details—and any estimate of total entries—and I can calculate an approximate chance."
+    },
+    {
+      "question": "Does LISA have any fansign coming up?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0001056,
+      "seconds": 2.53,
+      "text": "If you mean **LISA from BLACKPINK**, I can’t verify live event listings, so I can’t confirm whether she has a fansign coming up. Check her official social accounts and her agency’s announcements for the latest schedule; fan events are often announced close to the date."
+    },
+    {
+      "question": "How do I get from Changi Airport to the BTS concert in Singapore?",
+      "facts_ok": true,
+      "facts_hit": 2,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0004201,
+      "seconds": 7.46,
+      "text": "If the concert is at **Singapore National Stadium** (the usual venue for a large BTS show), take the MRT:\n\n1. At **Changi Airport MRT station**, take a train toward **Tanah Merah**.\n2. At **Tanah Merah**, change to the **westbound East-West Line** and ride to **Paya Lebar**.\n3. Change to the **Circle Line** and get off at **Stadium**. Follow the concert signs from there.\n\nAllow roughly **45–60 minutes** from the airport, plus extra time for concert crowds. A taxi or ride-hail is usually around **20–30 minutes**, depending on traffic. Check your ticket or the event’s official directions in case the venue or station access arrangements differ."
+    },
+    {
+      "question": "인천공항에서 TXT 콘서트장 KSPO DOME 가는 법 알려줘",
+      "facts_ok": false,
+      "facts_hit": 1,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0003285,
+      "seconds": 5.47,
+      "text": "가장 편한 대중교통 경로는 **공항철도 → 5호선**입니다.\n\n1. 인천공항 **제1·제2터미널역**에서 공항철도 **일반열차(서울역행)**를 타세요.  \n   ※ 직통열차는 공덕역에 서지 않으니 **일반열차**를 타면 환승이 편합니다.\n2. **공덕역**에서 내려 지하철 **5호선 마천행**으로 환승하세요.\n3. **올림픽공원역**에서 내려 **3번 출구**로 나와 표지판을 따라 걸으면 KSPO DOME에 도착합니다. 역에서 공연장까지 도보로 약 10~15분 잡으면 됩니다.\n\n공항에서 공연장까지는 환승·대기 시간을 포함해 **대략 1시간 30분~2시간** 예상하세요. 공연 당일에는 올림픽공원역과 주변이 붐빌 수 있으니, 여유 있게 출발하는 편이 좋습니다. 지하철 노선은 출발 전 네이버지도나 카카오맵에서 실시간으로 확인하세요."
+    },
+    {
+      "question": "How do I get from Kaohsiung airport to the BTS stadium?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0003356,
+      "seconds": 5.54,
+      "text": "Which venue do you mean by “the BTS stadium”? I don’t know of a venue by that name in Kaohsiung. If you mean **Kaohsiung National Stadium**, take the **Red Line MRT from Kaohsiung International Airport (R4) to Zuoying (R16)**, then take a taxi to the stadium (roughly 10 minutes).  \n\nIf you mean a stadium in Bangkok, tell me its name or share a map pin—the trip would involve flying from Kaohsiung first."
+    },
+    {
+      "question": "I fly into Incheon for TXT in Seoul - which route should I take and are tickets still available?",
+      "facts_ok": false,
+      "facts_hit": 1,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0001102,
+      "seconds": 2.79,
+      "text": "Which TXT show are you going to—what date or venue? Seoul concerts can be at different venues, and the best route from Incheon depends on that. Ticket availability also depends on the specific show; send me the date or ticket link and I can help you check what to look for.\n\nAs a general starting point, the AREX train runs from Incheon Airport toward Seoul Station, but it may not be the most convenient route to your venue."
+    },
+    {
+      "question": "What's on BTS's ARIRANG album and which song is the lead single?",
+      "facts_ok": true,
+      "facts_hit": 1,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.0002957,
+      "seconds": 5.22,
+      "text": "BTS’s *ARIRANG* has 14 tracks:\n\n1. “Body to Body”\n2. “Hooligan”\n3. “Aliens”\n4. “FYA”\n5. “2.0”\n6. “No. 29”\n7. “SWIM”\n8. “Merry Go Round”\n9. “NORMAL”\n10. “Like Animals”\n11. “they don’t know ’bout us”\n12. “One More Night”\n13. “Please”\n14. “Into the Sun”\n\n**“SWIM” is the lead single.**"
+    },
+    {
+      "question": "TXT 컴백 스밍 리스트 1시간짜리 만들어줘",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0001024,
+      "seconds": 2.45,
+      "text": "어떤 컴백 기준으로 만들까요? 타이틀곡이나 앨범명을 알려주시면 그 곡 중심으로 **1시간 스밍 리스트**를 짜드릴게요. 멜론·지니·벅스 등 이용하는 플랫폼도 알려주시면 더 맞춰드릴 수 있어요."
+    },
+    {
+      "question": "How much are BTS Singapore tickets and when did the general sale open?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 2,
+      "unofficial_links": [],
+      "cost": 0.0002885,
+      "seconds": 4.72,
+      "text": "For BTS’s Singapore shows at the National Stadium, tickets were **S$168–S$428**, before booking fees. The **general sale opened on 24 April 2026 at 10am** via Ticketmaster Singapore."
+    },
+    {
+      "question": "What's a good recipe for kimchi stew?",
+      "facts_ok": false,
+      "facts_hit": 0,
+      "facts_total": 1,
+      "unofficial_links": [],
+      "cost": 0.000228,
+      "seconds": 3.99,
+      "text": "## Kimchi stew (kimchi jjigae)\n\nA cozy, savory stew that’s best with well-fermented, tangy kimchi. Serves 2–3.\n\n### Ingredients\n- 1½ cups (about 250 g) napa cabbage kimchi, chopped, plus 2–3 tbsp kimchi juice\n- 150–200 g pork belly or shoulder, thinly sliced\n- ½ small onion, sliced\n- 2 cloves garlic, minced\n- 1 tsp gochugaru (Korean chili flakes), optional, for extra heat\n- 1 tsp gochujang (Korean chili paste), optional\n- 2 cups water or unsalted stock\n- 1 tsp soy sauce, to taste\n- ½ block firm tofu, sliced\n- 2 scallions, sliced\n- A little neutral oil, if needed\n\n### Method\n1. **Cook the pork:** In a small pot over medium heat, cook the pork for 3–4 minutes until it starts to render and brown. Add a little oil only if it’s very lean.\n2. **Add kimchi:** Stir in the kimchi, onion, garlic, and gochugaru. Cook for about 5 minutes, stirring now and then, until the kimchi softens.\n3. **Simmer:** Add the kimchi juice and water or stock. Bring to a boil, then lower the heat and simmer uncovered for 20 minutes.\n4. **Finish:** Stir in gochujang if using, then add the tofu. Simmer for another 5 minutes. Taste and adjust with soy sauce or a splash more kimchi juice.\n5. **Serve:** Scatter scallions over the top. Serve bubbling hot with steamed rice.\n\n**Tip:** Older, sour kimchi gives the stew the most flavor. For a vegetarian version, skip the pork and use mushrooms; vegetable stock works well in place of water."
+    }
+  ]
+}
