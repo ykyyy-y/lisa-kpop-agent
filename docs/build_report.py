@@ -656,7 +656,7 @@ def build() -> Path:
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>L.I.S.A. — Final Project Report</title><style>{CSS}</style></head><body><main>{body}
 <footer>L.I.S.A. · {AUTHOR} · MGT 409 AI for Managers, Yale SOM · Public repo: <a href="{REPO_URL}">{REPO_URL}</a> · Numbers generated from evals/results on {esc(B['run_at'])} by docs/build_report.py.
-Concert, ticketing and album data from public reporting (sources linked in the app); fansign rows are SAMPLE data. AI tools helped write code and prose; every number was produced by the scripts named above.</footer></main></body></html>"""
+Concert, ticketing and album data from public reporting (sources linked in the app); fansign rows are SAMPLE data. AI tools helped write the code and the prose. Measured numbers (tokens, cost, latency, accuracy, safety tests, backtest) come from the scripts in <code>evals/</code> run on 2026-10-26; pilot times, ratings and quotes come from the two participants; market figures come from the linked press sources.</footer></main></body></html>"""
     out = ROOT / "report.html"
     out.write_text(page, encoding="utf-8")
     return out

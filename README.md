@@ -100,7 +100,7 @@ Use another port with `PORT=8060` (macOS/Linux) or `$env:PORT=8060` (PowerShell)
 | Press **📅 Add to calendar** | Downloads an `.ics` file with the show dates |
 | Choose **Fansign**, move the album slider | Live win-chance curve, albums for 50 / 80 %, cost — computed locally |
 | Press **✍️ My win chance** on a fansign card | The Fansign Analyst explains your odds and cost; the "no guarantee" disclaimer is always added |
-| Open **📝 Report the cut**, submit a plausible cut, then `6` | The first is accepted and the model updates; the second is **quarantined** as a likely poisoning attempt |
+| Open **📝 Report the cut**, enter a cut of `60` and press **Submit report**, then change it to `6` and submit again | The first is accepted and the model updates; the second is **quarantined** as a likely poisoning attempt |
 | Choose **Streaming → 🎧 Build streaming playlist** | A fair 30 / 60 / 120-minute playlist from the real *ARIRANG* tracklist with official links |
 | Type `I fly into Changi for BTS in Singapore - how do I get to the stadium, and how much were tickets?` | The Router sends it to **two** agents; open **Show agent trace** to see every call, token and cent |
 | Ask the same question again | `⚡ cached · $0` |
