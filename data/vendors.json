@@ -1,0 +1,154 @@
+{
+  "_about": "Official-link allowlist. Any URL in an agent answer whose domain is not listed here is removed by code before the fan sees it (guardrails.filter_links).",
+  "vendors": [
+    {
+      "id": "ticketmaster",
+      "name": "Ticketmaster",
+      "kind": "ticketing",
+      "domains": [
+        "ticketmaster.com"
+      ]
+    },
+    {
+      "id": "ticketmaster_sg",
+      "name": "Ticketmaster Singapore",
+      "kind": "ticketing",
+      "domains": [
+        "ticketmaster.sg"
+      ]
+    },
+    {
+      "id": "thaiticketmajor",
+      "name": "ThaiTicketMajor",
+      "kind": "ticketing",
+      "domains": [
+        "thaiticketmajor.com"
+      ]
+    },
+    {
+      "id": "tixcraft",
+      "name": "tixCraft (Taiwan)",
+      "kind": "ticketing",
+      "domains": [
+        "tixcraft.com"
+      ]
+    },
+    {
+      "id": "nol",
+      "name": "NOL Ticket (Interpark / Yanolja)",
+      "kind": "ticketing",
+      "domains": [
+        "nol.yanolja.com",
+        "interpark.com",
+        "tickets.interpark.com"
+      ]
+    },
+    {
+      "id": "melon",
+      "name": "Melon Ticket",
+      "kind": "ticketing",
+      "domains": [
+        "ticket.melon.com"
+      ]
+    },
+    {
+      "id": "yes24",
+      "name": "YES24 Ticket",
+      "kind": "ticketing",
+      "domains": [
+        "ticket.yes24.com"
+      ]
+    },
+    {
+      "id": "weverse",
+      "name": "Weverse (official notices, membership)",
+      "kind": "official",
+      "domains": [
+        "weverse.io"
+      ]
+    },
+    {
+      "id": "withmuu",
+      "name": "Withmuu",
+      "kind": "album retailer",
+      "domains": [
+        "withmuu.com"
+      ]
+    },
+    {
+      "id": "makestar",
+      "name": "Makestar",
+      "kind": "album retailer",
+      "domains": [
+        "makestar.co"
+      ]
+    },
+    {
+      "id": "ktown4u",
+      "name": "Ktown4u",
+      "kind": "album retailer",
+      "domains": [
+        "ktown4u.com"
+      ]
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "kind": "streaming",
+      "domains": [
+        "youtube.com",
+        "youtu.be"
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "kind": "streaming",
+      "domains": [
+        "open.spotify.com",
+        "spotify.com"
+      ]
+    },
+    {
+      "id": "melon_music",
+      "name": "Melon",
+      "kind": "streaming",
+      "domains": [
+        "melon.com"
+      ]
+    },
+    {
+      "id": "applemusic",
+      "name": "Apple Music",
+      "kind": "streaming",
+      "domains": [
+        "music.apple.com"
+      ]
+    }
+  ],
+  "info_domains": [
+    "soompi.com",
+    "officialcharts.com",
+    "rollingstone.com",
+    "thefader.com",
+    "sports.khan.co.kr",
+    "caesars.com",
+    "airport.kr",
+    "seoulmetro.co.kr",
+    "krt.com.tw",
+    "smrt.com.sg",
+    "changiairport.com",
+    "hellorayo.co.uk",
+    "respawn.outlookindia.com",
+    "themusicuniverse.com",
+    "kpopofficial.com",
+    "sonymusic.ca",
+    "sportskeeda.com",
+    "secretsingapore.co",
+    "bandwagon.asia",
+    "nationthailand.com",
+    "philstarlife.com",
+    "news.tvbs.com.tw",
+    "livenation.com.tw"
+  ]
+}

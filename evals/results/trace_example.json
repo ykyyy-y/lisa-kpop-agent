@@ -1,0 +1,183 @@
+{
+  "message": "I fly into Changi for BTS in Singapore - how do I get to the stadium, and how much were tickets?",
+  "action": null,
+  "selections": {
+    "artist": "bts",
+    "city": "Singapore"
+  },
+  "agents": [
+    "logistics",
+    "schedule"
+  ],
+  "cache_hit": false,
+  "text": "#### 🚆 Logistics\nFrom Changi Airport to BTS’s National Stadium, take the MRT for about 50 minutes or a taxi for about 20 minutes.\n\n1. **Fastest by MRT:** Changi Airport → Tanah Merah; change to the East-West Line toward Tuas Link and ride to Paya Lebar; change to the Circle Line toward Dhoby Ghaut/HarbourFront and get off at Stadium (CC6). Fare: about SGD 2.50.\n2. **Alternative:** Taxi or Grab from the arrivals taxi stand via the ECP. About 20 minutes; fare about SGD 25–35.\n3. **Nearby stations:** Stadium MRT (CC6) is closest. Kallang MRT is about a 10-minute walk and may be a calmer option after the show.\n4. **Luggage:** Baggage storage counters are available at Changi Airport; large bags are not allowed in the stadium.\n5. **Show-day tip:** Times and fares are approximate—re-check on the day.\n\n#### 🎫 Schedule & Ticketing\nBTS is scheduled at National Stadium, Singapore Sports Hub on **2026-12-17, 2026-12-19, 2026-12-20, and 2026-12-22**; listed ticket prices were **SGD 148–388**, excluding booking fees.\n\n- Categories: CAT 6 SGD 148; CAT 3 SGD 238; CAT 2 SGD 288; CAT 1 SGD 328; VIP SGD 388.\n- The primary sale ran in June 2026 and demand was very high.\n- Use Ticketmaster Singapore’s official site: https://ticketmaster.sg. Organisers warn that tickets from unauthorised resellers may be refused at the gate.",
+  "trace": [
+    {
+      "kind": "model",
+      "agent": "router",
+      "tokens": {
+        "input": 362,
+        "cached_input": 0,
+        "cache_write": 0,
+        "output": 86,
+        "reasoning": 25
+      },
+      "cost": 7.92e-05,
+      "gateway_cache": false,
+      "seconds": 2.04
+    },
+    {
+      "kind": "router",
+      "mode": "llm",
+      "decision": {
+        "agents": [
+          "logistics",
+          "schedule"
+        ],
+        "artist": "bts",
+        "city": "Singapore",
+        "off_topic": false,
+        "reason": "The fan asks how to travel from Changi Airport to the stadium and about BTS ticket prices, so logistics and schedule are needed."
+      }
+    },
+    {
+      "kind": "model",
+      "agent": "logistics",
+      "tokens": {
+        "input": 1057,
+        "cached_input": 0,
+        "cache_write": 1054,
+        "output": 27,
+        "reasoning": 0
+      },
+      "cost": 0.00014555,
+      "gateway_cache": false,
+      "seconds": 1.4
+    },
+    {
+      "kind": "tool",
+      "agent": "logistics",
+      "name": "list_events",
+      "args": {
+        "artist": "bts",
+        "category": "concert",
+        "city": "Singapore"
+      },
+      "result_preview": "{\"events\": [{\"event_id\": \"bts-singapore-2026\", \"artist\": \"BTS\", \"category\": \"concert\", \"title\": \"BTS WORLD TOUR 'ARIRANG' in Singapore\", \"city\": \"Singapore\", \"venue_id\": \"sg_national_stadium\", \"venue\": \"National Stadium, Singapore Sports Hub\", \"dates\": [\"2026-12-17\", \"2026-12-19\", \"2026-12-20\", \"202"
+    },
+    {
+      "kind": "model",
+      "agent": "logistics",
+      "tokens": {
+        "input": 1223,
+        "cached_input": 1054,
+        "cache_write": 166,
+        "output": 29,
+        "reasoning": 0
+      },
+      "cost": 4.609e-05,
+      "gateway_cache": false,
+      "seconds": 1.41
+    },
+    {
+      "kind": "tool",
+      "agent": "logistics",
+      "name": "get_logistics",
+      "args": {
+        "venue_id": "sg_national_stadium",
+        "origin": "Changi"
+      },
+      "result_preview": "{\"id\": \"sg_national_stadium\", \"name\": \"National Stadium, Singapore Sports Hub\", \"city\": \"Singapore\", \"address\": \"1 Stadium Drive, Singapore\", \"nearest_stations\": [\"Stadium MRT (Circle Line, CC6)\", \"Kallang MRT (East-West Line) ~10 min walk\"], \"routes\": [{\"from\": \"Changi Airport (SIN)\", \"mode\": \"rail"
+    },
+    {
+      "kind": "model",
+      "agent": "logistics",
+      "tokens": {
+        "input": 1533,
+        "cached_input": 1220,
+        "cache_write": 310,
+        "output": 211,
+        "reasoning": 0
+      },
+      "cost": 0.00015675,
+      "gateway_cache": false,
+      "seconds": 2.33
+    },
+    {
+      "kind": "model",
+      "agent": "schedule",
+      "tokens": {
+        "input": 1064,
+        "cached_input": 0,
+        "cache_write": 1061,
+        "output": 27,
+        "reasoning": 0
+      },
+      "cost": 0.00014643,
+      "gateway_cache": false,
+      "seconds": 1.48
+    },
+    {
+      "kind": "tool",
+      "agent": "schedule",
+      "name": "list_events",
+      "args": {
+        "artist": "bts",
+        "category": "concert",
+        "city": "Singapore"
+      },
+      "result_preview": "{\"events\": [{\"event_id\": \"bts-singapore-2026\", \"artist\": \"BTS\", \"category\": \"concert\", \"title\": \"BTS WORLD TOUR 'ARIRANG' in Singapore\", \"city\": \"Singapore\", \"venue_id\": \"sg_national_stadium\", \"venue\": \"National Stadium, Singapore Sports Hub\", \"dates\": [\"2026-12-17\", \"2026-12-19\", \"2026-12-20\", \"202"
+    },
+    {
+      "kind": "model",
+      "agent": "schedule",
+      "tokens": {
+        "input": 1230,
+        "cached_input": 1061,
+        "cache_write": 166,
+        "output": 26,
+        "reasoning": 0
+      },
+      "cost": 4.466e-05,
+      "gateway_cache": false,
+      "seconds": 1.68
+    },
+    {
+      "kind": "tool",
+      "agent": "schedule",
+      "name": "get_ticketing",
+      "args": {
+        "event_id": "bts-singapore-2026"
+      },
+      "result_preview": "{\"event_id\": \"bts-singapore-2026\", \"title\": \"BTS WORLD TOUR 'ARIRANG' in Singapore\", \"dates\": [\"2026-12-17\", \"2026-12-19\", \"2026-12-20\", \"2026-12-22\"], \"ticketing\": {\"url\": \"https://ticketmaster.sg\", \"presale_registration\": \"ARMY MEMBERSHIP presale 2026-06-03 12:00 SGT (Weverse membership required);"
+    },
+    {
+      "kind": "model",
+      "agent": "schedule",
+      "tokens": {
+        "input": 1639,
+        "cached_input": 1227,
+        "cache_write": 409,
+        "output": 151,
+        "reasoning": 0
+      },
+      "cost": 0.00013919,
+      "gateway_cache": false,
+      "seconds": 1.84
+    }
+  ],
+  "guards": [],
+  "model_calls": 7,
+  "tokens": {
+    "input": 8108,
+    "cached_input": 4562,
+    "cache_write": 3166,
+    "output": 557,
+    "reasoning": 25
+  },
+  "cost": 0.00075787,
+  "seconds": 12.2,
+  "tool_calls": 4,
+  "gateway_hits": 0,
+  "timestamp": "2026-10-26T05:16:17+00:00"
+}

@@ -1,0 +1,4 @@
+# Developer tools only - not needed to run the app.
+-r requirements.txt
+playwright>=1.45   # docs/capture_screenshots.py (uses the Edge or Chrome already installed)
+pytest>=8.0        # tests/ - offline unit tests, no API key needed

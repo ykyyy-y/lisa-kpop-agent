@@ -1,0 +1,238 @@
+{
+  "_about": "Venue logistics for L.I.S.A. Routes use the standard public-transport options for each venue; times and fares are approximate (checked 2026-10) and every answer tells fans to re-check on the day.",
+  "venues": [
+    {
+      "id": "kspo",
+      "name": "KSPO DOME (Olympic Park)",
+      "city": "Seoul",
+      "address": "424 Olympic-ro, Songpa-gu, Seoul",
+      "nearest_stations": [
+        "Olympic Park Station (Line 5 / Line 9), Exit 3",
+        "Mongchontoseong Station (Line 8), Exit 1",
+        "Hanseong Baekje Station (Line 9)"
+      ],
+      "routes": [
+        {
+          "from": "Incheon International Airport (ICN)",
+          "mode": "rail",
+          "steps": [
+            "AREX all-stop train to Gimpo Airport Station (~35 min)",
+            "Transfer to Line 9 express toward VHS Medical Center",
+            "Get off at Olympic Park Station, Exit 3, walk ~5 min"
+          ],
+          "minutes": 90,
+          "cost": "about KRW 4,500 with T-money"
+        },
+        {
+          "from": "Incheon International Airport (ICN)",
+          "mode": "bus + taxi",
+          "steps": [
+            "Airport limousine bus to the Jamsil / Lotte World stop (~80 min)",
+            "Taxi ~10 min to Olympic Park"
+          ],
+          "minutes": 95,
+          "cost": "about KRW 18,000 bus + KRW 7,000 taxi"
+        },
+        {
+          "from": "Gimpo International Airport (GMP)",
+          "mode": "rail",
+          "steps": [
+            "Line 9 express (or Line 5 toward Hanam) from Gimpo Airport",
+            "Olympic Park Station, Exit 3"
+          ],
+          "minutes": 55,
+          "cost": "about KRW 1,900"
+        },
+        {
+          "from": "Seoul Station (KTX)",
+          "mode": "rail",
+          "steps": [
+            "Line 4 to Dongdaemun History & Culture Park",
+            "Transfer to Line 5 toward Hanam / Macheon",
+            "Olympic Park Station, Exit 3"
+          ],
+          "minutes": 50,
+          "cost": "about KRW 1,650"
+        }
+      ],
+      "lockers": [
+        "Station lockers inside Olympic Park Station fill by early afternoon on show days",
+        "Backup: lockers at Jamsil Station (Line 2 / Line 8), one stop away by taxi",
+        "Many fans pre-book a luggage-storage app spot near Jamsil"
+      ],
+      "tips": [
+        "After the show, Olympic Park Station is packed for ~40 min; walk 10 min to Mongchontoseong (Line 8) instead",
+        "Goods (MD) lines usually start the morning of each show day"
+      ]
+    },
+    {
+      "id": "colosseum",
+      "name": "The Colosseum at Caesars Palace",
+      "city": "Las Vegas",
+      "address": "3570 S Las Vegas Blvd, Las Vegas, NV",
+      "nearest_stations": [
+        "Inside Caesars Palace on the Las Vegas Strip",
+        "Las Vegas Monorail: Flamingo/Caesars Palace station (~10 min walk)"
+      ],
+      "routes": [
+        {
+          "from": "Harry Reid International Airport (LAS)",
+          "mode": "taxi / rideshare",
+          "steps": [
+            "Taxi or rideshare from the Terminal 1 or Terminal 3 pickup zone",
+            "Drop-off at Caesars Palace main entrance; follow signs to The Colosseum"
+          ],
+          "minutes": 20,
+          "cost": "about USD 25-35 including airport fees"
+        },
+        {
+          "from": "Harry Reid International Airport (LAS)",
+          "mode": "bus",
+          "steps": [
+            "RTC route 108 / Deuce connection toward the Strip",
+            "Walk to Caesars Palace"
+          ],
+          "minutes": 55,
+          "cost": "about USD 2-6"
+        }
+      ],
+      "lockers": [
+        "Caesars Palace bell desk holds bags for hotel guests",
+        "Non-guests: use a luggage-storage app on the Strip; large bags are not allowed inside the venue"
+      ],
+      "tips": [
+        "Shows start in the evening; rideshare surge pricing is common right after the show",
+        "Check The Colosseum's bag policy before you go"
+      ]
+    },
+    {
+      "id": "kaohsiung_stadium",
+      "name": "Kaohsiung National Stadium (World Games Main Stadium)",
+      "city": "Kaohsiung",
+      "address": "Zuoying District, Kaohsiung",
+      "nearest_stations": [
+        "Kaohsiung MRT Red Line R17 World Games station, Exit 2"
+      ],
+      "routes": [
+        {
+          "from": "Kaohsiung International Airport (KHH)",
+          "mode": "rail",
+          "steps": [
+            "Kaohsiung MRT Red Line from R4 Kaohsiung International Airport toward Gangshan",
+            "Get off at R17 World Games, Exit 2, walk ~5 min"
+          ],
+          "minutes": 45,
+          "cost": "about TWD 60"
+        },
+        {
+          "from": "Taoyuan International Airport (TPE)",
+          "mode": "rail",
+          "steps": [
+            "Taoyuan Airport MRT to HSR Taoyuan Station",
+            "Taiwan High Speed Rail to Zuoying (~1 h 40 min)",
+            "Kaohsiung MRT Red Line one stop to R17 World Games"
+          ],
+          "minutes": 150,
+          "cost": "about TWD 1,500"
+        },
+        {
+          "from": "HSR Zuoying Station",
+          "mode": "rail",
+          "steps": [
+            "Kaohsiung MRT Red Line one stop north to R17 World Games"
+          ],
+          "minutes": 10,
+          "cost": "about TWD 20"
+        }
+      ],
+      "lockers": [
+        "Coin lockers at HSR / MRT Zuoying Station",
+        "Stadium area has no public lockers - travel light"
+      ],
+      "tips": [
+        "Open-air stadium: bring a rain poncho; umbrellas are usually not allowed in the stands",
+        "Extra MRT trains run after the show but queues are long"
+      ]
+    },
+    {
+      "id": "rajamangala",
+      "name": "Rajamangala National Stadium",
+      "city": "Bangkok",
+      "address": "Ramkhamhaeng Road, Hua Mak, Bang Kapi, Bangkok",
+      "nearest_stations": [
+        "Airport Rail Link: Ramkhamhaeng station (then ~10 min taxi)",
+        "MRT Yellow Line: Lam Sali / Hua Mak area (then taxi)"
+      ],
+      "routes": [
+        {
+          "from": "Suvarnabhumi Airport (BKK)",
+          "mode": "rail + taxi",
+          "steps": [
+            "Airport Rail Link city line toward Phaya Thai",
+            "Get off at Ramkhamhaeng station (~20 min)",
+            "Taxi or motorbike taxi ~10 min to the stadium"
+          ],
+          "minutes": 45,
+          "cost": "about THB 35 rail + THB 80-120 taxi"
+        },
+        {
+          "from": "Don Mueang Airport (DMK)",
+          "mode": "taxi",
+          "steps": [
+            "Public taxi from the arrivals taxi queue (expressway)"
+          ],
+          "minutes": 50,
+          "cost": "about THB 350-450 incl. tolls"
+        }
+      ],
+      "lockers": [
+        "Left-luggage counters in Suvarnabhumi arrivals hall",
+        "No public lockers at the stadium"
+      ],
+      "tips": [
+        "Roads around Ramkhamhaeng jam from mid-afternoon on show days - arrive early",
+        "Book a ride back in advance or walk to the Airport Rail Link"
+      ]
+    },
+    {
+      "id": "sg_national_stadium",
+      "name": "National Stadium, Singapore Sports Hub",
+      "city": "Singapore",
+      "address": "1 Stadium Drive, Singapore",
+      "nearest_stations": [
+        "Stadium MRT (Circle Line, CC6)",
+        "Kallang MRT (East-West Line) ~10 min walk"
+      ],
+      "routes": [
+        {
+          "from": "Changi Airport (SIN)",
+          "mode": "rail",
+          "steps": [
+            "MRT from Changi Airport to Tanah Merah",
+            "Change to the East-West Line toward Tuas Link, get off at Paya Lebar",
+            "Circle Line toward Dhoby Ghaut / HarbourFront, get off at Stadium (CC6)"
+          ],
+          "minutes": 50,
+          "cost": "about SGD 2.50"
+        },
+        {
+          "from": "Changi Airport (SIN)",
+          "mode": "taxi",
+          "steps": [
+            "Taxi or Grab from the arrivals taxi stand via the ECP"
+          ],
+          "minutes": 20,
+          "cost": "about SGD 25-35"
+        }
+      ],
+      "lockers": [
+        "Baggage storage counters at Changi Airport",
+        "Large bags are not allowed in the stadium"
+      ],
+      "tips": [
+        "Kallang MRT is a calmer alternative to Stadium MRT after the show",
+        "Retractable roof - weather is rarely an issue"
+      ]
+    }
+  ]
+}

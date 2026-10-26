@@ -1,0 +1,84 @@
+{
+  "summary": {
+    "predictions": 5,
+    "model_median_abs_err_pct": 3.6,
+    "naive_median_abs_err_pct": 8.6,
+    "model_mean_abs_err_pct": 8.2,
+    "naive_mean_abs_err_pct": 8.6,
+    "band_80_coverage_pct": 80,
+    "naive_underbuys_pct": 80,
+    "data": "SAMPLE history (data/fansign.json)"
+  },
+  "rows": [
+    {
+      "series": "bts/ktown4u/video_call",
+      "date": "2026-06-20",
+      "actual": 124,
+      "predicted": 147.7,
+      "band": [
+        126.6,
+        172.2
+      ],
+      "model_err_pct": 19.1,
+      "naive_err_pct": 6.5,
+      "inside_band": false,
+      "naive_under": false
+    },
+    {
+      "series": "txt/makestar/video_call",
+      "date": "2026-06-06",
+      "actual": 81,
+      "predicted": 83.0,
+      "band": [
+        71.1,
+        96.8
+      ],
+      "model_err_pct": 2.4,
+      "naive_err_pct": 8.6,
+      "inside_band": true,
+      "naive_under": true
+    },
+    {
+      "series": "txt/makestar/video_call",
+      "date": "2026-09-05",
+      "actual": 88,
+      "predicted": 90.1,
+      "band": [
+        77.3,
+        105.1
+      ],
+      "model_err_pct": 2.4,
+      "naive_err_pct": 8.0,
+      "inside_band": true,
+      "naive_under": true
+    },
+    {
+      "series": "txt/withmuu/offline",
+      "date": "2026-05-23",
+      "actual": 52,
+      "predicted": 53.9,
+      "band": [
+        46.2,
+        62.8
+      ],
+      "model_err_pct": 3.6,
+      "naive_err_pct": 9.6,
+      "inside_band": true,
+      "naive_under": true
+    },
+    {
+      "series": "txt/withmuu/offline",
+      "date": "2026-08-29",
+      "actual": 58,
+      "predicted": 65.9,
+      "band": [
+        56.5,
+        76.8
+      ],
+      "model_err_pct": 13.6,
+      "naive_err_pct": 10.3,
+      "inside_band": true,
+      "naive_under": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "total_seconds": 34.5,
+  "total_cost": 0.001947,
+  "rows": [
+    {
+      "task": "A",
+      "question": "BTS plays Singapore in December. What are the dates, when did tickets go on sale, what is the price range, and what is the official ticket site?",
+      "agents": [
+        "schedule"
+      ],
+      "seconds": 9.61,
+      "model_calls": 4,
+      "cost": 0.00040827,
+      "answer": "BTS is scheduled to play Singapore on four dates in December 2026; tickets went on sale in June.\n\n- **Dates:** 2026-12-17, 2026-12-19, 2026-12-20, and 2026-12-22\n- **Venue:** National Stadium, Singapore Sports Hub\n- **Sale times:** ARMY MEMBERSHIP presale began 2026-06-03 at 12:00 SGT; general sale began 2026-06-05 at 12:00 SGT.\n- **Price range:** SGD 148–388, excluding booking fees.\n- **Official ticket site:** [Ticketmaster Singapore](https://ticketmaster.sg). Primary sales ran in June 2026; the tool reports demand was very high."
+    },
+    {
+      "task": "B",
+      "question": "BTS has a video-call fansign at Ktown4u. How many albums would I need for a good chance, and what would it cost?",
+      "agents": [
+        "fansign"
+      ],
+      "seconds": 8.68,
+      "model_calls": 4,
+      "cost": 0.0004578,
+      "answer": "This is **SAMPLE data** for the prototype; the model estimates **145 albums** for an 80% chance, costing **₩2,885,500**.\n\n- 50% chance: 131 albums — ₩2,606,900\n- 80% chance: 145 albums — ₩2,885,500\n- 90% chance: 153 albums — ₩3,044,700\n- The model’s past-cut trend is rising by 2.5% per event. These totals use ₩19,900 per album and exclude any additional fees.\n- Ktown4u video-call event: 2027-01-09; application window 2026-12-28 00:00 to 2027-01-03 23:59 KST. Official notice: https://www.ktown4u.com\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+    },
+    {
+      "task": "C",
+      "question": "I land at Changi Airport. How do I get to the BTS stadium, and where can I leave a suitcase?",
+      "agents": [
+        "logistics"
+      ],
+      "seconds": 7.94,
+      "model_calls": 4,
+      "cost": 0.00053168,
+      "answer": "From Changi Airport, take the MRT to Stadium MRT; leave your suitcase at Changi Airport baggage storage, as large bags aren’t allowed in the stadium.\n\n1. **Fastest route (rail):** Take the MRT from Changi Airport to Tanah Merah. Change to the East-West Line toward Tuas Link and get off at Paya Lebar. Change to the Circle Line toward Dhoby Ghaut / HarbourFront and get off at Stadium (CC6). Allow about **50 minutes**; fare is about **SGD 2.50**.\n2. **Alternative:** Taxi or Grab from the arrivals taxi stand via the ECP. About **20 minutes**, **SGD 25–35**.\n3. **Suitcase:** Baggage storage counters are available at Changi Airport. Large bags are not allowed in the stadium.\n4. **Show-day tip:** Kallang MRT is a calmer alternative to Stadium MRT after the show.\n\nTimes and fares are approximate; re-check on the day."
+    },
+    {
+      "task": "D",
+      "question": "TXT's next album comes out soon. When is it, and what should a one-hour streaming playlist look like?",
+      "agents": [
+        "streaming"
+      ],
+      "seconds": 8.25,
+      "model_calls": 4,
+      "cost": 0.00054948,
+      "answer": "TXT’s upcoming 9th mini album, **PERFECT STORM**, is scheduled for **2026-11-16**.\n\n- The title track and tracklist have not been announced in the L.I.S.A. dataset.\n- Until then, this one-hour playlist is a warm-up using the previous album, **7TH YEAR: A Moment of Stillness in the Thorns**. It has 18 estimated slots (~3.3 minutes each); it may not run to exactly 60 minutes.\n\n1. Stick With You\n2. Bed of Thorns\n3. Stick With You\n4. Take Me to Nirvana (feat. Vinida Weng)\n5. Any song by another artist\n6. So What\n7. Stick With You\n8. 21st Century Romance\n9. Stick With You\n10. Any song by another artist\n11. Stick With You\n12. Dream of Mine\n13. Stick With You\n14. Bed of Thorns\n15. Any song by another artist\n16. Take Me to Nirvana (feat. Vinida Weng)\n17. Stick With You\n18. So What\n\n**Fair streaming rules**\n- Play full songs at audible volume.\n- Mix in other tracks and artists; avoid muted looping.\n- Use one account per device; don’t buy streams or use bots."
+    }
+  ]
+}

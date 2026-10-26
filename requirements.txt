@@ -1,0 +1,4 @@
+# L.I.S.A. app - everything needed to run it.
+dash>=4.0          # UI (brings plotly + flask)
+openai>=1.80       # Responses API client, pointed at the Portkey gateway
+python-dotenv>=1.0 # reads PORTKEY_API_KEY from .env (repo folder or one level up)

@@ -1,0 +1,60 @@
+{
+  "_about": "Albums for the Streaming category. Tracklists and dates are from public reporting (sources per row, checked 2026-10-25). Where sources disagree, the row says so. Streaming links are platform search links built by the app, so they always land on the official platform.",
+  "releases": [
+    {
+      "id": "txt-perfect-storm",
+      "artist": "txt",
+      "title": "PERFECT STORM",
+      "type": "9th mini album",
+      "release_date": "2026-11-16",
+      "status": "upcoming",
+      "title_tracks": [],
+      "tracks": [],
+      "note": "Tracklist and title track not announced yet (a fan site expects six songs - unconfirmed). Until release, stream the current album to warm up.",
+      "warm_up_release": "txt-7th-year",
+      "sources": ["https://themusicuniverse.com/?p=161946", "https://kpopofficial.com/album/txt-perfect-storm/"]
+    },
+    {
+      "id": "txt-7th-year",
+      "artist": "txt",
+      "title": "7TH YEAR: A Moment of Stillness in the Thorns",
+      "type": "8th mini album",
+      "release_date": "2026-04-13",
+      "status": "released",
+      "title_tracks": ["Stick With You"],
+      "tracks": ["Bed of Thorns", "Stick With You", "Take Me to Nirvana (feat. Vinida Weng)", "So What", "21st Century Romance", "Dream of Mine"],
+      "note": "Title track is reported as 'Just One More Day (Stick With You)'. One source lists 'The Next After Next' instead of 'Dream of Mine' as the last track - check the platform listing.",
+      "sources": ["https://sports.khan.co.kr/en/article/202604051414007", "https://themusicuniverse.com/tomorrow-x-together-unveils-7th-year-tracklisting/"]
+    },
+    {
+      "id": "bts-arirang",
+      "artist": "bts",
+      "title": "ARIRANG",
+      "type": "5th studio album",
+      "release_date": "2026-03-20",
+      "status": "released",
+      "title_tracks": ["SWIM"],
+      "tracks": ["Body to Body", "Hooligan", "Aliens", "FYA", "2.0", "No. 29", "SWIM", "Merry Go Round", "NORMAL", "Like Animals", "they don't know 'bout us", "One More Night", "Please", "Into the Sun"],
+      "note": "SWIM (track 7) is the lead single. A deluxe edition with a 15th song was reported by one source only.",
+      "sources": ["https://www.hellorayo.co.uk/mfr/entertainment/music/bts-2026-album", "https://respawn.outlookindia.com/pop-culture/pop-culture-news/bts-unveils-full-14-song-arirang-tracklist-swim-lead-single-march-2026-release"]
+    },
+    {
+      "id": "lisa-alter-ego",
+      "artist": "lisa",
+      "title": "Alter Ego",
+      "type": "1st studio album",
+      "release_date": "2025-02-28",
+      "status": "released",
+      "title_tracks": ["Born Again", "New Woman", "Moonlit Floor", "Rockstar"],
+      "tracks": ["Born Again (feat. Doja Cat & RAYE)", "Rockstar", "Elastigirl", "Thunder", "New Woman (feat. Rosalía)", "Fxck Up the World (feat. Future)", "Rapunzel (feat. Megan Thee Stallion)", "Moonlit Floor", "When I'm With You (feat. Tyla)", "BADGRRRL", "Lifestyle", "Chill", "Dream", "Fxck Up the World (Vixi solo version)", "Rapunzel (Kiki solo version)"],
+      "note": "15 tracks per the February 2025 announcement; physical (vinyl) editions list a different order. Rockstar, New Woman and Moonlit Floor were released as singles before the album.",
+      "sources": ["https://www.sonymusic.ca/?p=28531", "https://www.sportskeeda.com/us/k-pop/the-eatery-going-intense-internet-reacts-blackpink-s-lisa-drops-tracklist-upcoming-solo-album-alter-ego"]
+    }
+  ],
+  "fair_streaming": [
+    "Play full songs at an audible volume - charts and music-show digital scores are built to count real listening.",
+    "Mix the title track with the other songs and with other artists; looping one song on mute is the pattern platforms filter out.",
+    "Use one account per device and stay logged in; do not buy streams or use bots - it can get plays removed and accounts banned.",
+    "On release day, start right at the release time and keep the playlist running through the first 24 hours."
+  ]
+}

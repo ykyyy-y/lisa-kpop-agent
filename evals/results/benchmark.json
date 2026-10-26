@@ -1,0 +1,1082 @@
+{
+  "model": "gpt-6-luna",
+  "run_at": "2026-10-26 01:16",
+  "prompt_cache_off": {
+    "summary": {
+      "questions": 16,
+      "routing_accuracy": 1.0,
+      "fact_accuracy": 1.0,
+      "avg_tokens": {
+        "input": 4225.2,
+        "cached_input": 0.0,
+        "cache_write": 3814.9,
+        "output": 290.6,
+        "reasoning": 19.9
+      },
+      "avg_cost": 0.0006632,
+      "avg_seconds": 8.91,
+      "avg_model_calls": 3.75
+    },
+    "rows": [
+      {
+        "question": "When does TXT play in Seoul and is it sold out?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4387,
+          "cached_input": 0,
+          "cache_write": 3980,
+          "output": 226,
+          "reasoning": 0
+        },
+        "cost": 0.00065121,
+        "seconds": 8.59,
+        "guards": [],
+        "text": "TXT plays in Seoul on 2026-11-13 to 2026-11-15 at KSPO DOME, and all three dates are sold out.\n\n- 2026-11-13: 19:00 KST\n- 2026-11-14: 18:00 KST\n- 2026-11-15: 17:00 KST\n- NOL reports the shows sold out in the general sale on 2026-10-06. Check NOL for official cancellation-ticket releases: https://nol.yanolja.com/ticket/products/26013161"
+      },
+      {
+        "question": "TXT 서울 콘서트 일반예매 언제였어?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4398,
+          "cached_input": 0,
+          "cache_write": 3991,
+          "output": 213,
+          "reasoning": 27
+        },
+        "cost": 0.00064608,
+        "seconds": 10.12,
+        "guards": [],
+        "text": "TXT 서울 콘서트 일반예매는 **2026-10-06 20:00 KST**에 열렸어.\n\n- 서울 3회차 모두 일반예매 당일 매진됐어.\n- 취소표는 NOL의 공식 취소표 발매만 확인해.\n- [NOL 예매 안내](https://nol.yanolja.com/ticket/products/26013161)"
+      },
+      {
+        "question": "Where is LISA's Las Vegas residency and what are the dates?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2746,
+          "cached_input": 0,
+          "cache_write": 2338,
+          "output": 161,
+          "reasoning": 0
+        },
+        "cost": 0.00041355,
+        "seconds": 4.75,
+        "guards": [],
+        "text": "LISA’s Las Vegas residency is at **The Colosseum at Caesars Palace**, with four listed dates:\n\n- 2026-11-13\n- 2026-11-14\n- 2026-11-27\n- 2026-11-28\n\nThe listing notes a conflicting additional date, 2026-11-29, and says to confirm on Ticketmaster."
+      },
+      {
+        "question": "What setlist did BTS play on the ARIRANG tour?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4695,
+          "cached_input": 0,
+          "cache_write": 4285,
+          "output": 318,
+          "reasoning": 21
+        },
+        "cost": 0.00073563,
+        "seconds": 11.33,
+        "guards": [],
+        "text": "BTS played a 23-song set at the ARIRANG tour’s London shows on 2026-07-06 and 2026-07-07.\n\n- Hooligan\n- Aliens\n- Run BTS (remix)\n- they don't know 'bout us\n- Like Animals (into FAKE LOVE)\n- FAKE LOVE (remix)\n- SWIM\n- Merry Go Round\n- 2.0\n- NORMAL\n- Not Today (remix)\n- MIC Drop\n- FYA\n- Fire\n- Body to Body\n- IDOL\n- Come Over\n- Butter\n- Dynamite\n- Airplane pt.2\n- Outro: Wings\n- Please\n- Into the Sun\n\nThe setlist changed during the tour, so Asia shows may differ. [Source](https://www.officialcharts.com/chart-news/bts-arirang-world-tour-setlist-2026-in-full-songs-for-london-tottenham-stadium/)"
+      },
+      {
+        "question": "What songs will TXT play on the STEAL THE WIND tour?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2608,
+          "cached_input": 0,
+          "cache_write": 2203,
+          "output": 96,
+          "reasoning": 0
+        },
+        "cost": 0.00036388,
+        "seconds": 5.3,
+        "guards": [],
+        "text": "TXT’s STEAL THE WIND tour setlist hasn’t been published yet; the tour opens in Seoul on 2026-11-13."
+      },
+      {
+        "question": "How many albums do I need for an 80% chance at the TXT Withmuu fansign?",
+        "expected_agents": [
+          "fansign"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "fansign"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 5646,
+          "cached_input": 0,
+          "cache_write": 5228,
+          "output": 227,
+          "reasoning": 19
+        },
+        "cost": 0.00080881,
+        "seconds": 7.78,
+        "guards": [],
+        "text": "For the TXT Withmuu fansign, the model estimates **65 albums** for an 80% chance, costing **₩1,157,000**.\n\n- This is **SAMPLE** data for the prototype.\n- The estimated cut has been trending upward, by **8.4% per event** in the model.\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+      },
+      {
+        "question": "If I buy 100 albums for the BTS Ktown4u video call, what is my chance?",
+        "expected_agents": [
+          "fansign"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "fansign"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 5054,
+          "cached_input": 0,
+          "cache_write": 4636,
+          "output": 335,
+          "reasoning": 0
+        },
+        "cost": 0.0007888,
+        "seconds": 6.93,
+        "guards": [],
+        "text": "**Buying 100 albums gives an estimated 1.2% chance of winning** for the BTS Ktown4u video call; the total would be **₩1,990,000**.\n\n- The estimate is based on 3 past Ktown4u video-call reports; cuts show a rising trend of 2.5% per event.\n- Estimated thresholds: 131 albums for 50% (₩2,606,900), 145 for 80% (₩2,885,500), and 153 for 90% (₩3,044,700).\n- This event and prediction are **SAMPLE data** for the prototype. Event date: 2027-01-09; application window: 2026-12-28 00:00 to 2027-01-03 23:59 KST.\n- Official retailer: https://www.ktown4u.com\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+      },
+      {
+        "question": "Does LISA have any fansign coming up?",
+        "expected_agents": [
+          "fansign"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "fansign"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2798,
+          "cached_input": 0,
+          "cache_write": 2395,
+          "output": 118,
+          "reasoning": 32
+        },
+        "cost": 0.00039868,
+        "seconds": 6.46,
+        "guards": [
+          {
+            "name": "disclaimer",
+            "detail": "disclaimer was missing - added by code"
+          }
+        ],
+        "text": "No upcoming LISA fansign is listed in the L.I.S.A. dataset.\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+      },
+      {
+        "question": "How do I get from Changi Airport to the BTS concert in Singapore?",
+        "expected_agents": [
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "logistics"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4248,
+          "cached_input": 0,
+          "cache_write": 3835,
+          "output": 370,
+          "reasoning": 0
+        },
+        "cost": 0.00070568,
+        "seconds": 7.4,
+        "guards": [],
+        "text": "The BTS concert is at National Stadium, Singapore Sports Hub; the fastest listed route from Changi Airport is by taxi or Grab, about 20 minutes.\n\n- **Fastest — taxi/Grab:** Take one from the arrivals taxi stand via the ECP. Approx. **20 minutes** and **SGD 25–35**.\n- **Alternative — MRT:** Changi Airport → Tanah Merah; change to the East-West Line toward Tuas Link and get off at Paya Lebar; change to the Circle Line toward Dhoby Ghaut / HarbourFront and get off at Stadium (CC6). Approx. **50 minutes**, about **SGD 2.50**.\n- **Nearest stations:** Stadium MRT (CC6); Kallang MRT is about a 10-minute walk.\n- **Luggage:** Baggage storage counters are available at Changi Airport. Large bags are not allowed in the stadium.\n- **Show-day tip:** Kallang MRT is a calmer alternative to Stadium MRT after the show.\n\nTimes and fares are approximate; re-check on the day. The concert dates listed are **2026-12-17, 2026-12-19, 2026-12-20, and 2026-12-22**."
+      },
+      {
+        "question": "인천공항에서 TXT 콘서트장 KSPO DOME 가는 법 알려줘",
+        "expected_agents": [
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "logistics"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4509,
+          "cached_input": 0,
+          "cache_write": 4096,
+          "output": 440,
+          "reasoning": 31
+        },
+        "cost": 0.00077331,
+        "seconds": 9.95,
+        "guards": [],
+        "text": "인천공항에서 KSPO DOME까지는 공항철도와 9호선 이용이 가장 간편합니다.\n\n1. 인천공항에서 **AREX 일반열차**를 타고 김포공항역으로 이동합니다(약 35분).\n2. 김포공항역에서 **9호선 급행, VHS Medical Center 방향**으로 환승해 올림픽공원역에서 내립니다.\n3. **3번 출구**로 나와 도보 약 5분이면 도착합니다. 전체 약 90분, 교통비 약 **4,500원(T-money 기준)**입니다.\n4. 대안: 공항 리무진버스로 잠실·롯데월드 정류장까지 간 뒤 택시를 타세요. 약 95분, 버스 약 18,000원 + 택시 약 7,000원입니다.\n5. **짐 보관:** 올림픽공원역 내부 물품보관함은 공연일 이른 오후까지 차는 경우가 있습니다. 잠실역 보관함도 대안입니다.\n6. 공연 후 올림픽공원역은 약 40분간 붐빌 수 있어요. 몽촌토성역까지 약 10분 걸어가는 방법도 있습니다.\n\n시간과 요금은 대략적인 정보이니 당일 다시 확인하세요."
+      },
+      {
+        "question": "How do I get from Kaohsiung airport to the BTS stadium?",
+        "expected_agents": [
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "logistics"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4746,
+          "cached_input": 0,
+          "cache_write": 4335,
+          "output": 360,
+          "reasoning": 58
+        },
+        "cost": 0.00076298,
+        "seconds": 9.42,
+        "guards": [],
+        "text": "From Kaohsiung International Airport (KHH), take the MRT Red Line to BTS’s Kaohsiung National Stadium; the journey is about 45 minutes and costs about TWD 60.\n\n1. Board the Red Line at R4 Kaohsiung International Airport, heading toward Gangshan.\n2. Get off at R17 World Games and use Exit 2.\n3. Walk about 5 minutes to the stadium.\n\n- **Alternative:** The dataset lists no alternative route from KHH.\n- **Luggage:** Coin lockers are available at HSR/MRT Zuoying Station; there are no public lockers at the stadium, so travel light.\n- **Show-day tip:** Extra MRT trains run after the show, but queues can be long. Bring a rain poncho; umbrellas are usually not allowed in the stands.\n\nTimes and fares are approximate; re-check on the day."
+      },
+      {
+        "question": "I fly into Incheon for TXT in Seoul - which route should I take and are tickets still available?",
+        "expected_agents": [
+          "schedule",
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "logistics",
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 7,
+        "gateway_hits": 0,
+        "tool_calls": 4,
+        "tokens": {
+          "input": 8638,
+          "cached_input": 0,
+          "cache_write": 8213,
+          "output": 528,
+          "reasoning": 0
+        },
+        "cost": 0.00133313,
+        "seconds": 14.94,
+        "guards": [],
+        "text": "#### 🚆 Logistics\nTake the rail route from Incheon International Airport (ICN) to KSPO DOME; allow about 90 minutes.\n\n1. Take the AREX all-stop train to Gimpo Airport Station (~35 min).\n2. Transfer to the Line 9 express toward VHS Medical Center and get off at Olympic Park Station.\n3. Use Exit 3 and walk about 5 minutes to KSPO DOME.\n\n- **Alternative:** Airport limousine bus to the Jamsil / Lotte World stop (~80 min), then taxi (~10 min) to Olympic Park; about 95 minutes total.\n- **Fare:** Rail route about KRW 4,500 with T-money. Alternative about KRW 18,000 for the bus plus KRW 7,000 for the taxi.\n- **Lockers:** Olympic Park Station lockers can fill by early afternoon on show days. Backup: Jamsil Station lockers.\n- **Show-day tip:** Olympic Park Station is packed for about 40 minutes after the show; consider walking 10 minutes to Mongchontoseong Station instead.\n\nTimes and fares are approximate; re-check on the day.\n\n#### 🎫 Schedule & Ticketing\nTXT’s Seoul concerts are sold out; watch NOL for official cancellation-ticket releases only.\n\n- **Venue:** KSPO DOME (Olympic Park), Seoul.\n- **Dates and start times (KST):** 2026-11-13 at 19:00; 2026-11-14 at 18:00; 2026-11-15 at 17:00.\n- General sale opened 2026-10-06 20:00 KST; all three dates sold out that day.\n- Official ticketing: [NOL Ticket](https://nol.yanolja.com/ticket/products/26013161)."
+      },
+      {
+        "question": "What's on BTS's ARIRANG album and which song is the lead single?",
+        "expected_agents": [
+          "streaming"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "streaming"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2901,
+          "cached_input": 0,
+          "cache_write": 2491,
+          "output": 289,
+          "reasoning": 25
+        },
+        "cost": 0.00049688,
+        "seconds": 6.24,
+        "guards": [],
+        "text": "BTS’s *ARIRANG* is a 14-track album, and “SWIM” is the lead single.\n\n- **Tracklist:** “Body to Body,” “Hooligan,” “Aliens,” “FYA,” “2.0,” “No. 29,” “SWIM,” “Merry Go Round,” “NORMAL,” “Like Animals,” “they don't know 'bout us,” “One More Night,” “Please,” and “Into the Sun.”\n- **Released:** 2026-03-20\n- **Listen:** [YouTube](https://www.youtube.com/results?search_query=BTS+SWIM+official) · [Spotify](https://open.spotify.com/search/BTS%20SWIM) · [Melon](https://www.melon.com/search/total/index.htm?q=BTS+SWIM) · [Apple Music](https://music.apple.com/us/search?term=BTS+SWIM)"
+      },
+      {
+        "question": "TXT 컴백 스밍 리스트 1시간짜리 만들어줘",
+        "expected_agents": [
+          "streaming"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "streaming"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 5459,
+          "cached_input": 0,
+          "cache_write": 5050,
+          "output": 731,
+          "reasoning": 106
+        },
+        "cost": 0.00103766,
+        "seconds": 13.6,
+        "guards": [],
+        "text": "TXT의 2026-11-16 컴백 전까지는 전작으로 1시간 워밍업 스밍 리스트를 이용하세요.\n\n- **컴백 앨범:** *PERFECT STORM* (9th mini album), 발매일 **2026-11-16**. 트랙리스트와 타이틀곡은 아직 미공개입니다.\n- **워밍업 앨범:** *7TH YEAR: A Moment of Stillness in the Thorns* — 타이틀곡 **“Stick With You”**. 수록곡: “Bed of Thorns”, “Stick With You”, “Take Me to Nirvana (feat. Vinida Weng)”, “So What”, “21st Century Romance”, “Dream of Mine”.\n- **1시간 리스트** (약 3.3분씩, 18곡 추정):\n  1. Stick With You\n  2. Bed of Thorns\n  3. Stick With You\n  4. Take Me to Nirvana (feat. Vinida Weng)\n  5. 다른 아티스트 곡\n  6. So What\n  7. Stick With You\n  8. 21st Century Romance\n  9. Stick With You\n  10. 다른 아티스트 곡\n  11. Stick With You\n  12. Dream of Mine\n  13. Stick With You\n  14. Bed of Thorns\n  15. 다른 아티스트 곡\n  16. Take Me to Nirvana (feat. Vinida Weng)\n  17. Stick With You\n  18. So What\n- **공식 플랫폼 검색:** [YouTube](https://www.youtube.com/results?search_query=TXT+Stick+With+You+official) · [Spotify](https://open.spotify.com/search/TXT%20Stick%20With%20You) · [Melon](https://www.melon.com/search/total/index.htm?q=TXT+Stick+With+You) · [Apple Music](https://music.apple.com/us/search?term=TXT+Stick+With+You)\n\n**스밍 규칙**\n- 곡을 끝까지, 들을 수 있는 음량으로 재생하세요.\n- 타이틀곡·수록곡·다른 아티스트 곡을 섞고 무음 반복은 피하세요.\n- 계정당 기기 하나로 이용하고, 봇이나 스트림 구매는 하지 마세요."
+      },
+      {
+        "question": "How much are BTS Singapore tickets and when did the general sale open?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4375,
+          "cached_input": 0,
+          "cache_write": 3962,
+          "output": 195,
+          "reasoning": 0
+        },
+        "cost": 0.00063406,
+        "seconds": 17.05,
+        "guards": [],
+        "text": "BTS Singapore tickets were listed at SGD 148–388 before booking fees, and general sale opened on 2026-06-05 at 12:00 SGT.\n\n- Prices: CAT 6 SGD 148; CAT 3 SGD 238; CAT 2 SGD 288; CAT 1 SGD 328; VIP SGD 388. Booking fees excluded.\n- Official ticketing: [Ticketmaster Singapore](https://ticketmaster.sg)."
+      },
+      {
+        "question": "What's a good recipe for kimchi stew?",
+        "expected_agents": [],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [],
+        "cache_hit": false,
+        "model_calls": 1,
+        "gateway_hits": 0,
+        "tool_calls": 0,
+        "tokens": {
+          "input": 395,
+          "cached_input": 0,
+          "cache_write": 0,
+          "output": 43,
+          "reasoning": 0
+        },
+        "cost": 6.1e-05,
+        "seconds": 2.68,
+        "guards": [],
+        "text": "I can help with **LISA, BTS and TXT** concerts, fansigns and streaming: dates, ticketing, fansign cut predictions, setlists, streaming playlists and how to get to the venue. Try a button on one of the cards on the left!"
+      }
+    ]
+  },
+  "prompt_cache_on": {
+    "summary": {
+      "questions": 16,
+      "routing_accuracy": 1.0,
+      "fact_accuracy": 0.938,
+      "avg_tokens": {
+        "input": 4149.5,
+        "cached_input": 2252.8,
+        "cache_write": 1505.4,
+        "output": 270.2,
+        "reasoning": 10.6
+      },
+      "avg_cost": 0.0003849,
+      "avg_seconds": 9.48,
+      "avg_model_calls": 3.75
+    },
+    "rows": [
+      {
+        "question": "When does TXT play in Seoul and is it sold out?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4317,
+          "cached_input": 2309,
+          "cache_write": 1619,
+          "output": 247,
+          "reasoning": 17
+        },
+        "cost": 0.00038787,
+        "seconds": 11.24,
+        "guards": [],
+        "text": "TXT’s Seoul shows are at KSPO DOME on 2026-11-13, 2026-11-14, and 2026-11-15—and all three dates are sold out.\n\n- Show times: 19:00 KST (Nov 13), 18:00 KST (Nov 14), 17:00 KST (Nov 15).\n- The official ticketing listing says they sold out in the general sale on 2026-10-06. Check NOL for official cancellation-ticket releases only: https://nol.yanolja.com/ticket/products/26013161"
+      },
+      {
+        "question": "TXT 서울 콘서트 일반예매 언제였어?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4321,
+          "cached_input": 2311,
+          "cache_write": 1620,
+          "output": 173,
+          "reasoning": 0
+        },
+        "cost": 0.00035112,
+        "seconds": 7.76,
+        "guards": [],
+        "text": "TXT 서울 콘서트 일반예매는 **2026-10-06 20:00 KST**였어요.\n\n- 현재 세 날짜 모두 일반예매에서 매진됐어요.\n- 공식 취소표 공지는 [NOL Ticket](https://nol.yanolja.com/ticket/products/26013161)에서 확인해 주세요."
+      },
+      {
+        "question": "Where is LISA's Las Vegas residency and what are the dates?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2694,
+          "cached_input": 1055,
+          "cache_write": 1251,
+          "output": 181,
+          "reasoning": 15
+        },
+        "cost": 0.00029623,
+        "seconds": 6.34,
+        "guards": [],
+        "text": "LISA’s Las Vegas residency is at The Colosseum at Caesars Palace, with four listed dates.\n\n- 2026-11-13\n- 2026-11-14\n- 2026-11-27\n- 2026-11-28\n\nThe L.I.S.A. listing notes another source also shows 2026-11-29, so confirm the dates with the official ticketing listing."
+      },
+      {
+        "question": "What setlist did BTS play on the ARIRANG tour?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4616,
+          "cached_input": 2498,
+          "cache_write": 1728,
+          "output": 321,
+          "reasoning": 20
+        },
+        "cost": 0.00044048,
+        "seconds": 7.32,
+        "guards": [],
+        "text": "BTS’s ARIRANG setlist reported for London on 2026-07-06 and 2026-07-07 had 23 songs.\n\n- Hooligan\n- Aliens\n- Run BTS (remix)\n- they don't know 'bout us\n- Like Animals (into FAKE LOVE)\n- FAKE LOVE (remix)\n- SWIM\n- Merry Go Round\n- 2.0\n- NORMAL\n- Not Today (remix)\n- MIC Drop\n- FYA\n- Fire\n- Body to Body\n- IDOL\n- Come Over\n- Butter\n- Dynamite\n- Airplane pt.2\n- Outro: Wings\n- Please\n- Into the Sun\n\nThe setlist has changed during the tour, and the tool notes to expect small changes in Asia. [Source](https://www.officialcharts.com/chart-news/bts-arirang-world-tour-setlist-2026-in-full-songs-for-london-tottenham-stadium/)"
+      },
+      {
+        "question": "What songs will TXT play on the STEAL THE WIND tour?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2550,
+          "cached_input": 1049,
+          "cache_write": 1114,
+          "output": 127,
+          "reasoning": 31
+        },
+        "cost": 0.00025194,
+        "seconds": 5.73,
+        "guards": [],
+        "text": "TXT’s STEAL THE WIND tour setlist has not been published yet; the tour opens in Seoul on 2026-11-13."
+      },
+      {
+        "question": "How many albums do I need for an 80% chance at the TXT Withmuu fansign?",
+        "expected_agents": [
+          "fansign"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "fansign"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 5567,
+          "cached_input": 2978,
+          "cache_write": 2191,
+          "output": 250,
+          "reasoning": 20
+        },
+        "cost": 0.00046846,
+        "seconds": 23.95,
+        "guards": [],
+        "text": "**For an estimated 80% chance at the TXT Withmuu fansign, the model predicts 65 albums, costing ₩1,157,000.**\n\n- This is **SAMPLE** data for the prototype.\n- Past cuts at this retailer have risen from 41 to 58 albums; the model’s trend is +8.4% per event.\n- [Withmuu](https://www.withmuu.com)\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+      },
+      {
+        "question": "If I buy 100 albums for the BTS Ktown4u video call, what is my chance?",
+        "expected_agents": [
+          "fansign"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "fansign"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4977,
+          "cached_input": 3790,
+          "cache_write": 789,
+          "output": 279,
+          "reasoning": 0
+        },
+        "cost": 0.00031582,
+        "seconds": 7.1,
+        "guards": [],
+        "text": "Your estimated chance of winning with 100 albums is **1.2%**.\n\n- **Total cost:** ₩1,990,000 at ₩19,900 per album.\n- **Estimated thresholds:** 131 albums (50%, ₩2,606,900); 145 (80%, ₩2,885,500); 153 (90%, ₩3,044,700).\n- **Trend:** Past reported cuts were 118, 132, and 124 albums; the model applies a 2.5% per-event upward trend.\n- This is **SAMPLE data** for the prototype.\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+      },
+      {
+        "question": "Does LISA have any fansign coming up?",
+        "expected_agents": [
+          "fansign"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "fansign"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2739,
+          "cached_input": 2263,
+          "cache_write": 92,
+          "output": 109,
+          "reasoning": 22
+        },
+        "cost": 0.00012703,
+        "seconds": 4.48,
+        "guards": [
+          {
+            "name": "disclaimer",
+            "detail": "disclaimer was missing - added by code"
+          }
+        ],
+        "text": "No upcoming LISA fansigns are listed in the L.I.S.A. dataset.\n\n⚠️ This prediction is based on past data and does not guarantee a win. / 본 예측은 과거 데이터 기반이며 당첨을 보장하지 않습니다."
+      },
+      {
+        "question": "How do I get from Changi Airport to the BTS concert in Singapore?",
+        "expected_agents": [
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "logistics"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4170,
+          "cached_input": 2256,
+          "cache_write": 1522,
+          "output": 332,
+          "reasoning": 0
+        },
+        "cost": 0.00041801,
+        "seconds": 6.66,
+        "guards": [],
+        "text": "The BTS concert is at National Stadium; from Changi Airport, the MRT is the lower-cost route.\n\n1. Take the MRT from Changi Airport to Tanah Merah.\n2. Change to the East-West Line toward Tuas Link and get off at Paya Lebar.\n3. Change to the Circle Line toward Dhoby Ghaut / HarbourFront and get off at Stadium (CC6). The journey is about 50 minutes and costs about SGD 2.50.\n\n- **Alternative:** Taxi or Grab from the arrivals taxi stand via the ECP; about 20 minutes and SGD 25–35.\n- **Lockers/luggage:** Baggage storage counters are available at Changi Airport. Large bags are not allowed in the stadium.\n- **Show-day tip:** Kallang MRT is a calmer alternative to Stadium MRT after the show.\n\nTimes and fares are approximate; re-check on the day. The concert dates listed are 2026-12-17, 2026-12-19, 2026-12-20, and 2026-12-22."
+      },
+      {
+        "question": "인천공항에서 TXT 콘서트장 KSPO DOME 가는 법 알려줘",
+        "expected_agents": [
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": false,
+        "facts_hit": 1,
+        "facts_total": 2,
+        "agents": [
+          "logistics"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4365,
+          "cached_input": 2305,
+          "cache_write": 1663,
+          "output": 434,
+          "reasoning": 24
+        },
+        "cost": 0.00048764,
+        "seconds": 9.02,
+        "guards": [],
+        "text": "인천공항에서 KSPO DOME까지는 **공항철도와 9호선으로 약 90분** 걸립니다.\n\n1. 인천공항에서 공항철도 일반열차를 타고 김포공항역으로 이동합니다(약 35분).\n2. 김포공항역에서 **9호선 급행, 중앙보훈병원 방면**으로 환승합니다.\n3. 올림픽공원역에서 내려 **3번 출구**로 나와 약 5분 걸으면 도착합니다. 요금은 티머니 기준 약 **4,500원**입니다.\n\n- **대안:** 공항 리무진으로 잠실·롯데월드 정류장까지 약 80분, 택시로 공원까지 약 10분입니다. 비용은 버스 약 18,000원 + 택시 약 7,000원입니다.\n- **짐 보관:** 올림픽공원역 보관함은 공연일 이른 오후 전에 찰 수 있습니다. 대안은 잠실역 보관함입니다.\n- **공연 팁:** 종료 후 올림픽공원역은 약 40분간 혼잡할 수 있어, 몽촌토성역까지 약 10분 걸어가는 방법도 있습니다.\n\n시간과 요금은 대략적인 안내이므로 당일 다시 확인하세요."
+      },
+      {
+        "question": "How do I get from Kaohsiung airport to the BTS stadium?",
+        "expected_agents": [
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "logistics"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4669,
+          "cached_input": 2482,
+          "cache_write": 1795,
+          "output": 288,
+          "reasoning": 0
+        },
+        "cost": 0.0004324,
+        "seconds": 7.35,
+        "guards": [],
+        "text": "The quickest route from Kaohsiung International Airport (KHH) to Kaohsiung National Stadium is the MRT Red Line, taking about 45 minutes and costing about TWD 60.\n\n1. Board the Red Line at R4 Kaohsiung International Airport toward Gangshan.\n2. Get off at R17 World Games and use Exit 2.\n3. Walk about 5 minutes to the stadium.\n\n- **Alternative:** No alternative route is listed in the L.I.S.A. dataset.\n- **Lockers:** Coin lockers are available at HSR/MRT Zuoying Station. The stadium area has no public lockers, so travel light.\n- **Show-day tip:** Extra MRT trains run after the show, but queues can be long.\n\nTimes and fares are approximate; re-check on the day."
+      },
+      {
+        "question": "I fly into Incheon for TXT in Seoul - which route should I take and are tickets still available?",
+        "expected_agents": [
+          "schedule",
+          "logistics"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "logistics",
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 7,
+        "gateway_hits": 0,
+        "tool_calls": 4,
+        "tokens": {
+          "input": 8504,
+          "cached_input": 4748,
+          "cache_write": 3349,
+          "output": 502,
+          "reasoning": 0
+        },
+        "cost": 0.0007578,
+        "seconds": 28.7,
+        "guards": [],
+        "text": "#### 🚆 Logistics\nTake the AREX and Line 9 to Olympic Park Station; it’s about 90 minutes and KRW 4,500 with T-money.\n\n1. From Incheon International Airport (ICN), take the AREX all-stop train to Gimpo Airport Station (~35 min).\n2. Transfer to the Line 9 express toward VHS Medical Center.\n3. Get off at Olympic Park Station, Exit 3, then walk ~5 min to KSPO DOME.\n\n- **Alternative:** Airport limousine bus to the Jamsil / Lotte World stop (~80 min), then a taxi (~10 min) to Olympic Park; about KRW 18,000 for the bus plus KRW 7,000 for the taxi.\n- **Lockers:** Olympic Park Station lockers may fill by early afternoon on show days. Jamsil Station lockers are a backup.\n- **Show-day tip:** After the show, Olympic Park Station is packed for ~40 minutes; consider walking 10 minutes to Mongchontoseong Station (Line 8).\n\nTimes and fares are approximate; re-check on the day.\n\n#### 🎫 Schedule & Ticketing\nTXT performs at KSPO DOME (Olympic Park) in Seoul on 2026-11-13, 2026-11-14, and 2026-11-15. Tickets are sold out.\n\n- All three dates sold out in the general sale on 2026-10-06.\n- Check NOL only for official cancellation-ticket releases: https://nol.yanolja.com/ticket/products/26013161\n- Face value is not published in the L.I.S.A. dataset; check the official listing."
+      },
+      {
+        "question": "What's on BTS's ARIRANG album and which song is the lead single?",
+        "expected_agents": [
+          "streaming"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [
+          "streaming"
+        ],
+        "cache_hit": false,
+        "model_calls": 3,
+        "gateway_hits": 0,
+        "tool_calls": 1,
+        "tokens": {
+          "input": 2842,
+          "cached_input": 1049,
+          "cache_write": 1403,
+          "output": 266,
+          "reasoning": 0
+        },
+        "cost": 0.00035787,
+        "seconds": 6.26,
+        "guards": [],
+        "text": "BTS’s **ARIRANG** is a 14-track album, and **“SWIM”** is the lead single.\n\n1. Body to Body\n2. Hooligan\n3. Aliens\n4. FYA\n5. 2.0\n6. No. 29\n7. **SWIM** (lead single)\n8. Merry Go Round\n9. NORMAL\n10. Like Animals\n11. they don't know 'bout us\n12. One More Night\n13. Please\n14. Into the Sun\n\nOfficial platform links: [YouTube](https://www.youtube.com/results?search_query=BTS+SWIM+official) · [Spotify](https://open.spotify.com/search/BTS%20SWIM) · [Melon](https://www.melon.com/search/total/index.htm?q=BTS+SWIM) · [Apple Music](https://music.apple.com/us/search?term=BTS+SWIM)"
+      },
+      {
+        "question": "TXT 컴백 스밍 리스트 1시간짜리 만들어줘",
+        "expected_agents": [
+          "streaming"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "streaming"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 5390,
+          "cached_input": 2677,
+          "cache_write": 2322,
+          "output": 537,
+          "reasoning": 0
+        },
+        "cost": 0.00062462,
+        "seconds": 7.58,
+        "guards": [],
+        "text": "TXT의 컴백 앨범은 **《PERFECT STORM》**이며, 발매일은 **2026-11-16**입니다. 트랙리스트와 타이틀곡은 아직 공개되지 않아, 아래는 **이전 앨범으로 준비하는 1시간 워밍업 리스트**입니다.\n\n1. Stick With You\n2. Bed of Thorns\n3. Stick With You\n4. Take Me to Nirvana (feat. Vinida Weng)\n5. 다른 아티스트 곡 1곡\n6. So What\n7. Stick With You\n8. 21st Century Romance\n9. Stick With You\n10. 다른 아티스트 곡 1곡\n11. Stick With You\n12. Dream of Mine\n13. Stick With You\n14. Bed of Thorns\n15. 다른 아티스트 곡 1곡\n16. Take Me to Nirvana (feat. Vinida Weng)\n17. Stick With You\n18. So What\n\n※ 약 3.3분씩 18곡으로 계산한 예상 길이입니다. 《7TH YEAR: A Moment of Stillness in the Thorns》의 타이틀곡은 **Stick With You**입니다.\n\n- **스밍 규칙:** 곡을 끝까지, 들을 수 있는 음량으로 재생하세요.\n- 타이틀곡만 반복하지 말고 수록곡과 다른 아티스트 곡도 섞으세요.\n- 한 기기에서 계정 하나로 이용하고, 봇·구매 스트리밍·음소거 반복 재생은 피하세요.\n\n공식 스트리밍 검색: [YouTube](https://www.youtube.com/results?search_query=TXT+Stick+With+You+official) · [Spotify](https://open.spotify.com/search/TXT%20Stick%20With%20You) · [Melon](https://www.melon.com/search/total/index.htm?q=TXT+Stick+With+You) · [Apple Music](https://music.apple.com/us/search?term=TXT+Stick+With+You)"
+      },
+      {
+        "question": "How much are BTS Singapore tickets and when did the general sale open?",
+        "expected_agents": [
+          "schedule"
+        ],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 2,
+        "facts_total": 2,
+        "agents": [
+          "schedule"
+        ],
+        "cache_hit": false,
+        "model_calls": 4,
+        "gateway_hits": 0,
+        "tool_calls": 2,
+        "tokens": {
+          "input": 4294,
+          "cached_input": 2274,
+          "cache_write": 1629,
+          "output": 229,
+          "reasoning": 20
+        },
+        "cost": 0.00037996,
+        "seconds": 10.45,
+        "guards": [],
+        "text": "BTS Singapore tickets were listed at SGD 148–388 before booking fees; general sale opened 2026-06-05 at 12:00 SGT.\n\n- Prices: CAT 6 SGD 148, CAT 3 SGD 238, CAT 2 SGD 288, CAT 1 SGD 328, VIP SGD 388 (booking fees excluded).\n- The primary sale ran in June 2026 and has passed.\n- Official ticketing: [Ticketmaster Singapore](https://ticketmaster.sg)."
+      },
+      {
+        "question": "What's a good recipe for kimchi stew?",
+        "expected_agents": [],
+        "routing_ok": true,
+        "facts_ok": true,
+        "facts_hit": 1,
+        "facts_total": 1,
+        "agents": [],
+        "cache_hit": false,
+        "model_calls": 1,
+        "gateway_hits": 0,
+        "tool_calls": 0,
+        "tokens": {
+          "input": 377,
+          "cached_input": 0,
+          "cache_write": 0,
+          "output": 48,
+          "reasoning": 0
+        },
+        "cost": 6.17e-05,
+        "seconds": 1.82,
+        "guards": [],
+        "text": "I can help with **LISA, BTS and TXT** concerts, fansigns and streaming: dates, ticketing, fansign cut predictions, setlists, streaming playlists and how to get to the venue. Try a button on one of the cards on the left!"
+      }
+    ]
+  },
+  "fan_day": [
+    {
+      "label": "no caching",
+      "answer_cache": false,
+      "requests": 30,
+      "unique_questions": 12,
+      "cost": 0.02074,
+      "cache_hits": 0,
+      "model_calls": 122,
+      "gateway_hits": 0,
+      "billed_calls": 122,
+      "total_seconds": 259.5
+    },
+    {
+      "label": "+ prompt caching",
+      "answer_cache": false,
+      "requests": 30,
+      "unique_questions": 12,
+      "cost": 0.008539,
+      "cache_hits": 0,
+      "model_calls": 120,
+      "gateway_hits": 0,
+      "billed_calls": 120,
+      "total_seconds": 241.4
+    },
+    {
+      "label": "+ Portkey gateway cache",
+      "answer_cache": false,
+      "requests": 30,
+      "unique_questions": 12,
+      "cost": 0.004705,
+      "cache_hits": 0,
+      "model_calls": 117,
+      "gateway_hits": 70,
+      "billed_calls": 47,
+      "total_seconds": 100.2
+    },
+    {
+      "label": "+ L.I.S.A. answer cache (production)",
+      "answer_cache": true,
+      "requests": 30,
+      "unique_questions": 12,
+      "cost": 0.004765,
+      "cache_hits": 18,
+      "model_calls": 49,
+      "gateway_hits": 0,
+      "billed_calls": 49,
+      "total_seconds": 89.7
+    }
+  ],
+  "buttons_vs_typed": [
+    {
+      "action": "ticketing",
+      "button_cost": 0.00031148,
+      "button_calls": 2,
+      "button_seconds": 4.11,
+      "typed_cost": 0.00044994,
+      "typed_calls": 4,
+      "typed_seconds": 7.49,
+      "router_tokens": {
+        "input": 417,
+        "cached_input": 0,
+        "cache_write": 0,
+        "output": 50,
+        "reasoning": 0
+      },
+      "router_cost": 6.67e-05
+    },
+    {
+      "action": "setlist",
+      "button_cost": 0.00030203,
+      "button_calls": 2,
+      "button_seconds": 5.25,
+      "typed_cost": 0.00036549,
+      "typed_calls": 3,
+      "typed_seconds": 7.8,
+      "router_tokens": {
+        "input": 380,
+        "cached_input": 0,
+        "cache_write": 0,
+        "output": 64,
+        "reasoning": 18
+      },
+      "router_cost": 7e-05
+    },
+    {
+      "action": "fansign",
+      "button_cost": 0.00044157,
+      "button_calls": 3,
+      "button_seconds": 5.79,
+      "typed_cost": 0.00039505,
+      "typed_calls": 4,
+      "typed_seconds": 6.95,
+      "router_tokens": {
+        "input": 409,
+        "cached_input": 0,
+        "cache_write": 0,
+        "output": 72,
+        "reasoning": 22
+      },
+      "router_cost": 7.69e-05
+    },
+    {
+      "action": "logistics",
+      "button_cost": 0.00036734,
+      "button_calls": 2,
+      "button_seconds": 6.13,
+      "typed_cost": 0.00043451,
+      "typed_calls": 4,
+      "typed_seconds": 8.58,
+      "router_tokens": {
+        "input": 397,
+        "cached_input": 0,
+        "cache_write": 0,
+        "output": 102,
+        "reasoning": 45
+      },
+      "router_cost": 9.07e-05
+    },
+    {
+      "action": "playlist",
+      "button_cost": 0.00058007,
+      "button_calls": 3,
+      "button_seconds": 6.61,
+      "typed_cost": 0.0006021,
+      "typed_calls": 4,
+      "typed_seconds": 26.31,
+      "router_tokens": {
+        "input": 388,
+        "cached_input": 0,
+        "cache_write": 0,
+        "output": 70,
+        "reasoning": 25
+      },
+      "router_cost": 7.38e-05
+    }
+  ],
+  "wall_seconds": 1070.1
+}

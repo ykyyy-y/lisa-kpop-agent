@@ -1,0 +1,12 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# local environment and runtime files
+.venv/
+venv/
+__pycache__/
+*.pyc
+runtime/
+.claude/

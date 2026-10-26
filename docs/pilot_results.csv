@@ -1,0 +1,11 @@
+participant,task,method,seconds,sites_or_apps_opened,confidence_1to5,correct_yes_no,notes
+HA,A,manual,,3,,yes,"Opened a KKday blog post, the Live Nation SG event page and the Ticketmaster SG listing (and more) to piece together dates, sale times and prices"
+HA,B,manual,,4,,no,"Checked X (Twitter), fan sites, the fan club and a fan-only app and still could not decide: 100, 200 or 300 albums?"
+HA,C,manual,,2,,yes,"Searched Google and Google Maps for the route from Changi"
+HA,D,manual,,2,,yes,"Opened the Weverse TXT notice and a KpopStarz article (and more) to find the PERFECT STORM release date"
+HA,A,lisa,,1,,,"Used L.I.S.A. only"
+HA,B,lisa,,1,,,"Used L.I.S.A. only"
+HA,C,lisa,,1,,,"Used L.I.S.A. only"
+HA,D,lisa,,1,,,"Used L.I.S.A. only"
+Jin,ALL,manual,1980,4,,,"Searched X (Twitter), DC Inside fan galleries, Weverse and Naver fan cafes for the four tasks; found the usual way inconvenient"
+Jin,ALL,lisa,360,1,5,,"Used L.I.S.A. only"

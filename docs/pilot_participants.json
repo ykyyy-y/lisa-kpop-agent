@@ -1,0 +1,37 @@
+{
+  "_how_to": "One entry per pilot participant (docs/PILOT_TEST.md). The first one is featured in the Motivation section. Leave a field empty to hide it. Then run: python docs/build_report.py",
+  "participants": [
+    {
+      "name_or_initials": "HA",
+      "fandom": "A Korean idol (K-pop) fan who follows comebacks, fansigns and concerts",
+      "how_they_do_it_today": "Today HA checks X (Twitter), fan sites, the fan club, a fan-only app, Weverse notices, ticketing pages and Google Maps one by one.",
+      "manual_total_minutes": "40",
+      "lisa_total_minutes": "5",
+      "lisa_time_note": "time to use L.I.S.A. and read its answers for all four tasks (self-reported)",
+      "manual_sources": "KKday blog, Live Nation SG, Ticketmaster SG, X (Twitter), fan sites, fan club, fan-only app, Google, Google Maps, Weverse notice, KpopStarz",
+      "manual_unanswered": "1 of 4 (fansign album count: 100, 200 or 300?)",
+      "ease_1to5": "5",
+      "confidence_usual_1to5": "4",
+      "confidence_lisa_1to5": "5",
+      "would_use": "Yes",
+      "confusing_or_wrong": "Nothing - very easy to use",
+      "quote": "During idol promotion periods and in my fan activities it is so easy to use - it saves me the trouble of checking everything one by one myself."
+    },
+    {
+      "name_or_initials": "Jin",
+      "fandom": "K-pop fan",
+      "how_they_do_it_today": "Searches X (Twitter), DC Inside fan galleries, Weverse and Naver fan cafes.",
+      "manual_total_minutes": "33",
+      "lisa_total_minutes": "6",
+      "lisa_time_note": "time to use L.I.S.A. and read its answers for all four tasks (self-reported)",
+      "manual_sources": "X (Twitter), DC Inside, Weverse, Naver Cafe",
+      "manual_unanswered": "",
+      "ease_1to5": "5",
+      "confidence_usual_1to5": "",
+      "confidence_lisa_1to5": "5",
+      "would_use": "Yes",
+      "confusing_or_wrong": "The usual way was inconvenient",
+      "quote": "A service I want to use regularly from now on - genuinely useful for my fan activities."
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "_about": "L.I.S.A. demo dataset. Concert rows are compiled from public reporting (see each row's sources, checked 2026-10-25).",
+  "artists": [
+    {
+      "id": "bts",
+      "name": "BTS",
+      "group": "BTS",
+      "fandom": "ARMY",
+      "agency": "BIGHIT MUSIC / HYBE",
+      "official_channel": "https://weverse.io/bts/notice"
+    },
+    {
+      "id": "txt",
+      "name": "TXT",
+      "group": "TOMORROW X TOGETHER",
+      "fandom": "MOA",
+      "agency": "BIGHIT MUSIC / HYBE",
+      "official_channel": "https://weverse.io/txt/notice"
+    },
+    {
+      "id": "lisa",
+      "name": "LISA",
+      "group": "BLACKPINK (solo)",
+      "fandom": "LILIES",
+      "agency": "LLOUD",
+      "official_channel": "https://www.weverse.io"
+    }
+  ],
+  "events": [
+    {
+      "id": "bts-kaohsiung-2026",
+      "artist": "bts",
+      "category": "concert",
+      "title": "BTS WORLD TOUR 'ARIRANG' in Kaohsiung",
+      "city": "Kaohsiung",
+      "country": "Taiwan",
+      "venue_id": "kaohsiung_stadium",
+      "dates": [
+        "2026-11-19",
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "date_note": "",
+      "ticketing": {
+        "vendor_id": "tixcraft",
+        "url": "https://tixcraft.com",
+        "presale_registration": "ARMY MEMBERSHIP priority 2026-06-02; Live Nation member presale 2026-06-03 (promoter: Live Nation Taiwan)",
+        "presale_open": "2026-06-02 (ARMY MEMBERSHIP)",
+        "general_open": "2026-06-04 12:00 (Taiwan time)",
+        "status": "Primary sale ran in June 2026; shows are in high demand. Watch tixCraft for official releases only.",
+        "price_note": "NT$2,980 - 7,980; VIP package NT$9,380; plus NT$200 system fee per ticket."
+      },
+      "data_status": "verified_public",
+      "sources": [
+        "https://philstarlife.com/amp/article/919461-how-much-bts-arirang-world-tour-other-countries",
+        "https://news.tvbs.com.tw/entertainment/3219262",
+        "https://www.soompi.com/article/1797016wpp/2026-k-pop-tour-masterlist-concerts-fan-meetings-and-more"
+      ]
+    },
+    {
+      "id": "bts-bangkok-2026",
+      "artist": "bts",
+      "category": "concert",
+      "title": "BTS WORLD TOUR 'ARIRANG' in Bangkok",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "venue_id": "rajamangala",
+      "dates": [
+        "2026-12-03",
+        "2026-12-05",
+        "2026-12-06"
+      ],
+      "date_note": "",
+      "ticketing": {
+        "vendor_id": "thaiticketmajor",
+        "url": "https://www.thaiticketmajor.com",
+        "presale_registration": "ARMY MEMBERSHIP presale 2026-06-09 via ThaiTicketMajor; Trip.com and Live Nation Tero presales 2026-06-10",
+        "presale_open": "2026-06-09 (ARMY MEMBERSHIP); online queue opens one hour before sale time",
+        "general_open": "2026-06-11",
+        "status": "Primary sale ran in June 2026. Check ThaiTicketMajor for any official release; avoid StubHub/Viagogo-style resale at several times face value.",
+        "price_note": "THB 3,300 - 7,800 (VIP package), excluding booking and service fees."
+      },
+      "data_status": "verified_public",
+      "sources": [
+        "https://www.nationthailand.com/life/entertainment/40066529",
+        "https://www.soompi.com/article/1797016wpp/2026-k-pop-tour-masterlist-concerts-fan-meetings-and-more"
+      ]
+    },
+    {
+      "id": "bts-singapore-2026",
+      "artist": "bts",
+      "category": "concert",
+      "title": "BTS WORLD TOUR 'ARIRANG' in Singapore",
+      "city": "Singapore",
+      "country": "Singapore",
+      "venue_id": "sg_national_stadium",
+      "dates": [
+        "2026-12-17",
+        "2026-12-19",
+        "2026-12-20",
+        "2026-12-22"
+      ],
+      "date_note": "",
+      "ticketing": {
+        "vendor_id": "ticketmaster_sg",
+        "url": "https://ticketmaster.sg",
+        "presale_registration": "ARMY MEMBERSHIP presale 2026-06-03 12:00 SGT (Weverse membership required); Live Nation presale 2026-06-04 12:00 SGT",
+        "presale_open": "2026-06-03 12:00 SGT (ARMY MEMBERSHIP)",
+        "general_open": "2026-06-05 12:00 SGT",
+        "status": "Primary sale ran in June 2026 and demand was very high. Buy only from Ticketmaster or its official resale; organisers warn tickets from unauthorised resellers may be refused at the gate.",
+        "price_note": "SGD 148 (CAT 6) - 238 (CAT 3) - 288 (CAT 2) - 328 (CAT 1) - 388 (VIP), excluding booking fees."
+      },
+      "data_status": "verified_public",
+      "sources": [
+        "https://secretsingapore.co/bts-singapore-concert-tickets-go-on-sale-june-2026/",
+        "https://www.bandwagon.asia/articles/bts-announce-4-night-singapore-national-stadium-stop-as-part-of-arirang-world-tour",
+        "https://www.soompi.com/article/1797016wpp/2026-k-pop-tour-masterlist-concerts-fan-meetings-and-more"
+      ]
+    },
+    {
+      "id": "txt-seoul-2026",
+      "artist": "txt",
+      "category": "concert",
+      "title": "TXT WORLD TOUR 'STEAL THE WIND' in Seoul",
+      "city": "Seoul",
+      "country": "South Korea",
+      "venue_id": "kspo",
+      "dates": [
+        "2026-11-13",
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "date_note": "Show times KST: 19:00 (Fri 11-13), 18:00 (Sat 11-14), 17:00 (Sun 11-15). Also streamed online for fans who cannot attend.",
+      "ticketing": {
+        "vendor_id": "nol",
+        "url": "https://nol.yanolja.com/ticket/products/26013161",
+        "presale_registration": "Domestic fan-membership verification 2026-09-28 to 2026-10-01; global membership verification to 2026-10-02",
+        "presale_open": "Domestic presale 2026-10-01 20:00 KST; global presale 2026-10-02 20:00 KST",
+        "general_open": "2026-10-06 20:00 KST",
+        "status": "SOLD OUT - all three Seoul dates sold out in the general sale on 2026-10-06. Watch NOL for official cancellation-ticket releases only.",
+        "price_note": "Face value not published in our sources - check the NOL listing."
+      },
+      "data_status": "verified_public",
+      "sources": [
+        "https://nol.yanolja.com/ticket/products/26013161",
+        "https://sports.khan.co.kr/en/article/202610071824007",
+        "https://www.soompi.com/article/1797016wpp/2026-k-pop-tour-masterlist-concerts-fan-meetings-and-more"
+      ]
+    },
+    {
+      "id": "lisa-vegas-2026",
+      "artist": "lisa",
+      "category": "concert",
+      "title": "VIVA LA LISA - Las Vegas residency",
+      "city": "Las Vegas",
+      "country": "USA",
+      "venue_id": "colosseum",
+      "dates": [
+        "2026-11-13",
+        "2026-11-14",
+        "2026-11-27",
+        "2026-11-28"
+      ],
+      "date_note": "Rolling Stone and The FADER list four shows; Soompi's masterlist also shows 2026-11-29. Confirm on Ticketmaster.",
+      "ticketing": {
+        "vendor_id": "ticketmaster",
+        "url": "https://www.ticketmaster.com",
+        "presale_registration": "2026-04-01 to 2026-04-19 (Ticketmaster account sign-up, no code)",
+        "presale_open": "2026-04-22 10:00 PT (artist presale, not guaranteed)",
+        "general_open": "2026-04-23 10:00 PT",
+        "status": "Primary sale already happened (April 2026). Use only Ticketmaster's official resale; third-party resellers were listing seats before they existed.",
+        "price_note": "Face value not published in our sources - check Ticketmaster."
+      },
+      "data_status": "verified_public",
+      "sources": [
+        "https://www.rollingstone.com/product-recommendations/tickets/how-to-buy-lisa-las-vegas-viva-la-lisa-tickets-online-sites-deals-1235551937/",
+        "https://www.thefader.com/2026/03/30/lisa-las-vegas-residency-how-to-buy-tickets-dates",
+        "https://www.soompi.com/article/1797016wpp/2026-k-pop-tour-masterlist-concerts-fan-meetings-and-more"
+      ]
+    }
+  ]
+}

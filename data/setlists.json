@@ -1,0 +1,17 @@
+{
+  "_about": "Reported setlists. Only setlists published by a named source are included; tours that have not started yet have no setlist on purpose, so the agent must say so instead of guessing.",
+  "setlists": [
+    {
+      "artist": "bts",
+      "tour": "ARIRANG",
+      "show": "London, Tottenham Hotspur Stadium, 2026-07-06 and 2026-07-07",
+      "songs": ["Hooligan", "Aliens", "Run BTS (remix)", "they don't know 'bout us", "Like Animals (into FAKE LOVE)", "FAKE LOVE (remix)", "SWIM", "Merry Go Round", "2.0", "NORMAL", "Not Today (remix)", "MIC Drop", "FYA", "Fire", "Body to Body", "IDOL", "Come Over", "Butter", "Dynamite", "Airplane pt.2", "Outro: Wings", "Please", "Into the Sun"],
+      "note": "The ARIRANG setlist has changed across the tour (it opened 2026-04-09 in Goyang with 23 songs). Expect small changes in Asia.",
+      "source": "https://www.officialcharts.com/chart-news/bts-arirang-world-tour-setlist-2026-in-full-songs-for-london-tottenham-stadium/"
+    }
+  ],
+  "no_setlist_yet": [
+    {"artist": "txt", "tour": "STEAL THE WIND", "reason": "The tour opens in Seoul on 2026-11-13, so no setlist has been published yet."},
+    {"artist": "lisa", "tour": "VIVA LA LISA (Las Vegas residency)", "reason": "The residency opens on 2026-11-13, so no setlist has been published yet."}
+  ]
+}
