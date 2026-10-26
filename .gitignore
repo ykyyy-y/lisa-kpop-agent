@@ -10,3 +10,6 @@ __pycache__/
 *.pyc
 runtime/
 .claude/
+
+# local copies made for Canvas upload (the repo keeps report.html / slides.html)
+*_1026.html
