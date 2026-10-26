@@ -10,7 +10,7 @@
     "schedule"
   ],
   "cache_hit": false,
-  "text": "#### 🚆 Logistics\nFrom Changi Airport to BTS’s National Stadium, take the MRT for about 50 minutes or a taxi for about 20 minutes.\n\n1. **Fastest by MRT:** Changi Airport → Tanah Merah; change to the East-West Line toward Tuas Link and ride to Paya Lebar; change to the Circle Line toward Dhoby Ghaut/HarbourFront and get off at Stadium (CC6). Fare: about SGD 2.50.\n2. **Alternative:** Taxi or Grab from the arrivals taxi stand via the ECP. About 20 minutes; fare about SGD 25–35.\n3. **Nearby stations:** Stadium MRT (CC6) is closest. Kallang MRT is about a 10-minute walk and may be a calmer option after the show.\n4. **Luggage:** Baggage storage counters are available at Changi Airport; large bags are not allowed in the stadium.\n5. **Show-day tip:** Times and fares are approximate—re-check on the day.\n\n#### 🎫 Schedule & Ticketing\nBTS is scheduled at National Stadium, Singapore Sports Hub on **2026-12-17, 2026-12-19, 2026-12-20, and 2026-12-22**; listed ticket prices were **SGD 148–388**, excluding booking fees.\n\n- Categories: CAT 6 SGD 148; CAT 3 SGD 238; CAT 2 SGD 288; CAT 1 SGD 328; VIP SGD 388.\n- The primary sale ran in June 2026 and demand was very high.\n- Use Ticketmaster Singapore’s official site: https://ticketmaster.sg. Organisers warn that tickets from unauthorised resellers may be refused at the gate.",
+  "text": "#### 🚆 Logistics\nFrom Changi Airport, take the MRT to National Stadium in about 50 minutes for approximately SGD 2.50.\n\n1. Take the MRT from Changi Airport to Tanah Merah.\n2. Change to the East-West Line toward Tuas Link and get off at Paya Lebar.\n3. Change to the Circle Line toward Dhoby Ghaut / HarbourFront and get off at Stadium (CC6).\n\n- **Alternative:** Taxi or Grab via the ECP; about 20 minutes and SGD 25–35.\n- **Nearby station:** Kallang MRT is about a 10-minute walk and may be a calmer option after the show.\n- **Luggage:** Changi Airport has baggage storage counters; large bags are not allowed in the stadium.\n- **Show-day tip:** Re-check travel times and fares on the day. The stadium has a retractable roof, so weather is rarely an issue.\n\n#### 🎫 Schedule & Ticketing\nBTS will perform at Singapore National Stadium on 2026-12-17, 2026-12-19, 2026-12-20, and 2026-12-22; tickets were SGD 148–388, excluding booking fees.\n\n- Prices: CAT 6 SGD 148; CAT 3 SGD 238; CAT 2 SGD 288; CAT 1 SGD 328; VIP SGD 388.\n- The primary sale ran in June 2026 and is over. Ticketing was through [Ticketmaster Singapore](https://ticketmaster.sg); the notice says to use Ticketmaster or its official resale only.",
   "trace": [
     {
       "kind": "model",
@@ -19,12 +19,12 @@
         "input": 362,
         "cached_input": 0,
         "cache_write": 0,
-        "output": 86,
-        "reasoning": 25
+        "output": 73,
+        "reasoning": 20
       },
-      "cost": 7.92e-05,
+      "cost": 7.27e-05,
       "gateway_cache": false,
-      "seconds": 2.04
+      "seconds": 1.87
     },
     {
       "kind": "router",
@@ -37,22 +37,22 @@
         "artist": "bts",
         "city": "Singapore",
         "off_topic": false,
-        "reason": "The fan asks how to travel from Changi Airport to the stadium and about BTS ticket prices, so logistics and schedule are needed."
+        "reason": "Asks how to travel from Changi Airport to the BTS venue and about ticket prices."
       }
     },
     {
       "kind": "model",
       "agent": "logistics",
       "tokens": {
-        "input": 1057,
-        "cached_input": 0,
-        "cache_write": 1054,
+        "input": 1102,
+        "cached_input": 1099,
+        "cache_write": 0,
         "output": 27,
         "reasoning": 0
       },
-      "cost": 0.00014555,
+      "cost": 2.479e-05,
       "gateway_cache": false,
-      "seconds": 1.4
+      "seconds": 1.3
     },
     {
       "kind": "tool",
@@ -69,15 +69,15 @@
       "kind": "model",
       "agent": "logistics",
       "tokens": {
-        "input": 1223,
-        "cached_input": 1054,
-        "cache_write": 166,
+        "input": 1268,
+        "cached_input": 1265,
+        "cache_write": 0,
         "output": 29,
         "reasoning": 0
       },
-      "cost": 4.609e-05,
+      "cost": 2.745e-05,
       "gateway_cache": false,
-      "seconds": 1.41
+      "seconds": 2.64
     },
     {
       "kind": "tool",
@@ -93,29 +93,29 @@
       "kind": "model",
       "agent": "logistics",
       "tokens": {
-        "input": 1533,
-        "cached_input": 1220,
-        "cache_write": 310,
-        "output": 211,
+        "input": 1578,
+        "cached_input": 1575,
+        "cache_write": 0,
+        "output": 190,
         "reasoning": 0
       },
-      "cost": 0.00015675,
+      "cost": 0.00011105,
       "gateway_cache": false,
-      "seconds": 2.33
+      "seconds": 2.66
     },
     {
       "kind": "model",
       "agent": "schedule",
       "tokens": {
-        "input": 1064,
-        "cached_input": 0,
-        "cache_write": 1061,
+        "input": 1109,
+        "cached_input": 1106,
+        "cache_write": 0,
         "output": 27,
         "reasoning": 0
       },
-      "cost": 0.00014643,
+      "cost": 2.486e-05,
       "gateway_cache": false,
-      "seconds": 1.48
+      "seconds": 1.61
     },
     {
       "kind": "tool",
@@ -132,15 +132,15 @@
       "kind": "model",
       "agent": "schedule",
       "tokens": {
-        "input": 1230,
-        "cached_input": 1061,
-        "cache_write": 166,
+        "input": 1275,
+        "cached_input": 1272,
+        "cache_write": 0,
         "output": 26,
         "reasoning": 0
       },
-      "cost": 4.466e-05,
+      "cost": 2.602e-05,
       "gateway_cache": false,
-      "seconds": 1.68
+      "seconds": 2.0
     },
     {
       "kind": "tool",
@@ -155,29 +155,29 @@
       "kind": "model",
       "agent": "schedule",
       "tokens": {
-        "input": 1639,
-        "cached_input": 1227,
-        "cache_write": 409,
-        "output": 151,
+        "input": 1684,
+        "cached_input": 1681,
+        "cache_write": 0,
+        "output": 136,
         "reasoning": 0
       },
-      "cost": 0.00013919,
+      "cost": 8.511e-05,
       "gateway_cache": false,
-      "seconds": 1.84
+      "seconds": 2.31
     }
   ],
   "guards": [],
   "model_calls": 7,
   "tokens": {
-    "input": 8108,
-    "cached_input": 4562,
-    "cache_write": 3166,
-    "output": 557,
-    "reasoning": 25
+    "input": 8378,
+    "cached_input": 7998,
+    "cache_write": 0,
+    "output": 508,
+    "reasoning": 20
   },
-  "cost": 0.00075787,
-  "seconds": 12.2,
+  "cost": 0.00037198,
+  "seconds": 14.44,
   "tool_calls": 4,
   "gateway_hits": 0,
-  "timestamp": "2026-10-26T05:16:17+00:00"
+  "timestamp": "2026-10-26T07:13:50+00:00"
 }

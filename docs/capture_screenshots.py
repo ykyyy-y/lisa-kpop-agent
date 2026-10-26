@@ -10,6 +10,7 @@ whole server process tree.
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -21,6 +22,9 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 SHOTS = ROOT / "docs" / "screenshots"
+FULL_RUNS = ROOT / "runtime" / "full_runs.jsonl"
+TRACE_OUT = ROOT / "evals" / "results" / "trace_example.json"
+TRACE_QUESTION = "I fly into Changi for BTS in Singapore - how do I get to the stadium, and how much were tickets?"
 PORT = 8051
 URL = f"http://127.0.0.1:{PORT}/"
 
@@ -28,7 +32,9 @@ URL = f"http://127.0.0.1:{PORT}/"
 def start_server() -> subprocess.Popen:
     (ROOT / "runtime" / "answer_cache.json").unlink(missing_ok=True)
     (ROOT / "runtime" / "community_reports.json").unlink(missing_ok=True)
-    env = dict(os.environ, PORT=str(PORT), PYTHONUTF8="1", LISA_FORCE_REFRESH="1")  # real model calls, not gateway replays
+    FULL_RUNS.unlink(missing_ok=True)
+    # real model calls (not gateway replays); full runs are saved so Figure 2 and the trace table are one run
+    env = dict(os.environ, PORT=str(PORT), PYTHONUTF8="1", LISA_FORCE_REFRESH="1", LISA_SAVE_FULL_RUNS="1")
     proc = subprocess.Popen([sys.executable, "app.py"], cwd=ROOT, env=env,
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     for _ in range(60):
@@ -65,6 +71,13 @@ def click_and_wait(page, selector: str, timeout: int = 90_000) -> None:
 def open_last_trace(page) -> None:
     page.locator(".msg.bot details.trace summary").last.click()
     page.wait_for_timeout(300)
+
+
+def save_trace(question: str) -> None:
+    """Saves the run shown in the screenshot as evals/results/trace_example.json (the report's trace table)."""
+    runs = [json.loads(line) for line in FULL_RUNS.read_text(encoding="utf-8").splitlines() if line.strip()]
+    run = [r for r in runs if r["message"] == question and not r["cache_hit"]][-1]
+    TRACE_OUT.write_text(json.dumps(run, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def main() -> None:
@@ -107,10 +120,11 @@ def main() -> None:
 
             # Traced multi-agent run from free text.
             page.click("#category label:nth-of-type(1)")
-            ask(page, "I fly into Changi for BTS in Singapore - how do I get to the stadium, and how much were tickets?")
+            ask(page, TRACE_QUESTION)
             open_last_trace(page)
             page.locator(".msg.bot").last.screenshot(path=SHOTS / "04_trace_multi_agent.png")
             page.screenshot(path=SHOTS / "05_full_after_trace.png")
+            save_trace(TRACE_QUESTION)
 
             # Same question again -> answer cache.
             ask(page, "I fly into Changi for BTS in Singapore - how do I get to the stadium, and how much were tickets?")

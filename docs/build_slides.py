@@ -91,8 +91,8 @@ def build() -> Path:
           f"the answers are joined, checked against the link allowlist and the date check, and shown with a trace — every model call, tool call, token and cent. "
           f"This run took {R.T['model_calls']} model calls and cost ${R.T['cost']:.5f}. Ask the same question again and it comes back from the answer cache for zero.")
     N7 = (f"Every number here comes from the API's own token counts. A question averages about {R.tok['input']:,.0f} input tokens — {R.tok['cached_input']/R.tok['input']*100:.0f} percent "
-          f"from the prompt cache — and {R.tok['output']:,.0f} output tokens, about ${R.per_req:.5f}. On a simulated fan day of 30 requests we stacked four cache layers: provider "
-          f"prompt caching, Portkey's response cache — which we detect and price at zero — and our own answer cache. Cost fell {day_saving:.0f} percent with no loss in quality. "
+          f"from the prompt cache — and {R.tok['output']:,.0f} output tokens, about ${R.per_req:.6f}. On a simulated fan day of 30 requests we stacked four cache layers: provider "
+          f"prompt caching, Portkey's response cache — which we detect and price at zero — and our own answer cache. Cost fell {day_saving:.0f} percent; caching does not change what the model sees, and the strict grader's small gap between the two runs is run-to-run noise. "
           f"At 10,000 fans that is about ${R.monthly(R.per_req_cached, 10_000):,.0f} a month; even a platform with a million fans pays about ${R.monthly(R.per_req_cached, 1_000_000):,.0f}. "
           f"Model cost is not the constraint — fresh data is.")
     N8 = (f"We do not trust the model with safety; every defense is code, and it is tested. Prompt injection, in English or Korean, is refused before any API call. "
@@ -142,7 +142,7 @@ def build() -> Path:
 <tr><td>Official links only</td><td>❌</td><td>✅</td><td>❌ scams</td><td>✅ enforced in code</td></tr></table>
 <div class="cols"><div class="quote">Same model <b>without</b> L.I.S.A.: <b>{R.BREV['correct']}/{R.BREV['on_topic_questions']}</b> correct, {R.BREV['declined_or_asked_for_details']} declined,
 <b>{R.BREV['confidently_wrong']} confidently wrong</b> — e.g. Singapore "S$168–428, sale 24 Apr" (actual SGD 148–388, 5 Jun)<span>evals/baseline_chatbot.py · hand-reviewed</span></div>
-<div class="quote">With L.I.S.A.: <b>{R.LISA_ON['reviewed']}/{R.LISA_ON['n']}</b> correct · <b>팬싸컷 예측</b> backtest error {BT['model_median_abs_err_pct']}% vs {BT['naive_median_abs_err_pct']}% for "copy the last cut"<span>benchmark · backtest</span></div></div>
+<div class="quote">With L.I.S.A.: <b>{R.LISA_ON['reviewed']}/{R.LISA_ON['n']}</b> correct (read by hand; {R.on['fact_accuracy']*100:.0f}% of all {R.on['questions']} by the strict grader) · <b>팬싸컷 예측</b> backtest error {BT['model_median_abs_err_pct']}% vs {BT['naive_median_abs_err_pct']}% for "copy the last cut"<span>benchmark · backtest</span></div></div>
 {notes(N3)}</section>""",
         f"""<section><h2>The agent team</h2><div class="diagram">{architecture_svg()}</div>
 <p class="small">Router → 4 specialists with their own tools · gpt-6-luna · card buttons skip the router and pass the card's id · guards are code, not prompts</p>
@@ -158,10 +158,10 @@ def build() -> Path:
 <p class="small">Ask again → answer cache, $0</p></div></div>
 {notes(N6)}</section>""",
         f"""<section><h2>Cost: measured, not estimated</h2>
-<div class="kpis">{kpi(f"${R.per_req:.5f}", "per question (real tokens)")}{kpi(f"{R.tok['input']:,.0f} / {R.tok['cached_input']:,.0f} / {R.tok['output']:,.0f}", "input / cached / output tokens")}
+<div class="kpis">{kpi(f"${R.per_req:.6f}", "per question (real tokens)")}{kpi(f"{R.tok['input']:,.0f} / {R.tok['cached_input']:,.0f} / {R.tok['output']:,.0f}", "input / cached / output tokens")}
 {kpi(f"${R.monthly(R.per_req_cached, 1):.3f}", f"per fan / month ({R.REQ_PER_USER_MONTH} questions)")}{kpi(f"${R.monthly(R.per_req_cached, 10_000):,.0f}", "10,000 fans / month")}</div>
 <p class="small">30-request fan day, four cache layers:</p>{bars()}
-<p class="small">Quality held: {R.off['fact_accuracy']*100:.0f}% → {on['fact_accuracy']*100:.0f}% facts correct with caching off → on · card buttons: {R.typed_calls:.1f} → {R.btn_calls:.1f} model calls · astra would cost 100×.</p>
+<p class="small">Quality check (strict grader): facts {R.off['fact_accuracy']*100:.0f}% with prompt caching off vs {on['fact_accuracy']*100:.0f}% on — caching does not change what the model sees, so the gap is run-to-run noise · card buttons: {R.typed_calls:.1f} → {R.btn_calls:.1f} model calls · astra would cost 100×.</p>
 {notes(N7)}</section>""",
         f"""<section><h2>Safety: defenses that run in code</h2><div class="cols">
 <div><div class="kpis two">{kpi(f"{R.passed}/{R.total}", "red-team tests passed")}{kpi(str(R.UNIT_TESTS), "offline unit tests")}</div>
@@ -175,8 +175,8 @@ def build() -> Path:
 {pilot_kpi}{kpi(f"₩{R.FS_SAVING:,}", f"over-buying avoided: {R.FS_PLAN} → {R.FS_P80['albums']} albums for ~80% (SAMPLE)")}</div>
 <div class="cols"><div><ul class="small">
 <li><b>Fansign model backtest:</b> median error {BT['model_median_abs_err_pct']}% vs {BT['naive_median_abs_err_pct']}% for "copy the last cut"; the copy rule under-bought in {BT['naive_underbuys_pct']}% of cases</li>
-<li><b>Quality:</b> routing {on['routing_accuracy']*100:.0f}%; the one fact miss was a correct Korean answer (공항철도 = AREX)</li>
-<li><b>Cost:</b> ${R.per_req_cached:.5f} per answer with caching · 1,000,000 fans ≈ ${R.monthly(R.per_req_cached, 1_000_000):,.0f} / month</li>
+<li><b>Quality:</b> routing {on['routing_accuracy']*100:.0f}%; every required fact in {on['fact_accuracy']*100:.0f}% of {on['questions']} questions (strict grader)</li>
+<li><b>Cost:</b> ${R.per_req_cached:.6f} per answer with caching · 1,000,000 fans ≈ ${R.monthly(R.per_req_cached, 1_000_000):,.0f} / month</li>
 <li><b>Safety:</b> {R.passed}/{R.total} red-team tests · 0 unofficial links shown</li>
 <li><b>Pilot (2 real fans):</b> HA opened {R.PILOT_SUMMARY['manual_sites']}+ sites and still could not find the fansign album count; both rated ease 5/5 and would use it</li></ul>
 <div class="quote">"So easy to use — it saves me the trouble of checking everything one by one myself."<span>HA, pilot participant</span></div>

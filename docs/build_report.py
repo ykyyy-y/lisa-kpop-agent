@@ -156,6 +156,9 @@ TASK_NAMES = {
 
 
 FEATURED = participant.get("name_or_initials", "")
+_pairs = [(float(p_["manual_total_minutes"]), float(p_["lisa_total_minutes"])) for p_ in PARTICIPANTS
+          if p_.get("manual_total_minutes") and p_.get("lisa_total_minutes")]
+PILOT_AVG = (f"{sum(m for m, _ in _pairs) / len(_pairs):.1f} → {sum(l_ for _, l_ in _pairs) / len(_pairs):.1f} min" if _pairs else "see §7")
 
 
 def _rows(method: str) -> list[dict]:
@@ -183,6 +186,7 @@ def sec_title() -> str:
   <p class="one-liner">An AI agent team that turns scattered Weverse notices, ticketing pages and X threads into one answer for K-pop
   fans: concert dates with official ticket links and prices, a <b>fansign cut-line predictor (팬싸컷 예측)</b> with its cost,
   comeback <b>streaming plans</b>, and airport-to-venue logistics — with code-enforced protection from scam links and overspending.</p>
+  <h2>1. Title and links</h2>
   <table class="meta-table">
     <tr><th>Author</th><td>{AUTHOR} (Yale SOM MBA)</td></tr>
     <tr><th>Repository</th><td>{repo} <b>(public)</b><br><code>git clone {esc(REPO_URL)}.git</code></td></tr>
@@ -345,12 +349,13 @@ a misrouted question costs one cheap router call, not a confused 10-tool loop.</
 The work is narrow — pick a tool, read structured JSON, write a short answer — so a larger model would add cost (gpt-6-astra is 100× per token) without adding facts. On the benchmark luna routed
 {on['routing_accuracy']*100:.0f}% of questions correctly and included every required fact in {on['fact_accuracy']*100:.0f}%.</p>
 <h3>One real run, traced step by step</h3>
-<p>Question typed in the chat: <i>"{esc(T['message'])}"</i>. The trace below is the saved run (<code>evals/results/trace_example.json</code>); Figure 2 shows the same question in the app.</p>
+<p>Question typed in the chat: <i>"{esc(T['message'])}"</i>. The table below and Figure 2 are the <b>same run</b>: the screenshot was taken in the app and the run saved to <code>evals/results/trace_example.json</code>
+(the app's token counter adds input and output tokens).</p>
 {table(["#", "Who", "Action", "Detail"], rows, "trace-table")}
 <p>Total: <b>{T['model_calls']} model calls, {T['tool_calls']} tool calls, {tt['input']:,} input tokens ({tt['cached_input']:,} cached), {tt['output']:,} output tokens,
 {usd(T['cost'])}, {T['seconds']} s</b>. The Router split the question to Logistics and Schedule &amp; Ticketing; each looked up the Singapore event and called its own tool; both answers
 were joined under agent headings and passed the link allowlist and the date check.</p>
-<div class="grid2">{img("04_trace_multi_agent.png", "Figure 2 — The two-agent answer in the app with the trace open (agents, tools, tokens, cost).")}
+<div class="grid2">{img("04_trace_multi_agent.png", "Figure 2 — The traced run above, in the app: each agent's answer under its own heading, then the trace (agents, tools, tokens, cost).")}
 {img("01_home.png", "Figure 3 — Home: click planner; each sourced card has only the agent buttons that fit it, plus 📅 calendar export.")}</div>
 <div class="grid2">{img("02_fansign_chart.png", "Figure 4 — Fansign view: local cut-line model, win chance vs albums and cost — $0.")}
 {img("03_fansign_answer.png", "Figure 5 — Fansign Analyst from the card's 'My win chance' button, disclaimer enforced.")}</div>
@@ -368,16 +373,29 @@ def sec_tokenomics() -> str:
     agent_rows = [[esc(k), len(v), f"{sum(r['model_calls'] for r in v)/len(v):.1f}", f"{sum(r['tokens']['input'] for r in v)/len(v):,.0f}",
                    f"{sum(r['tokens']['output'] for r in v)/len(v):,.0f}", usd(sum(r['cost'] for r in v) / len(v), 6)]
                   for k, v in sorted(per_agent.items(), key=lambda kv: -sum(r["cost"] for r in kv[1]) / len(kv[1]))]
-    per_q = [[esc(r["question"][:70]), ", ".join(r["agents"]) or "—", r["model_calls"], f"{r['tokens']['input']:,}", f"{r['tokens']['cached_input']:,}",
+    per_q = [[esc(r["question"]), ", ".join(r["agents"]) or "—", r["model_calls"], f"{r['tokens']['input']:,}", f"{r['tokens']['cached_input']:,}",
               f"{r['tokens']['output']:,}", usd(r["cost"], 6), "✅" if r["facts_ok"] and r["routing_ok"] else "❌"] for r in B["prompt_cache_on"]["rows"]]
     saved_pc = (off["avg_cost"] - on["avg_cost"]) / off["avg_cost"] * 100 if off["avg_cost"] else 0
     saved_day = (day_off["cost"] - day_on["cost"]) / day_off["cost"] * 100 if day_off["cost"] else 0
-    misses = [r for k in ("prompt_cache_off", "prompt_cache_on") for r in B[k]["rows"] if not (r["facts_ok"] and r["routing_ok"])]
+    misses = [(k, r) for k in ("prompt_cache_off", "prompt_cache_on") for r in B[k]["rows"] if not (r["facts_ok"] and r["routing_ok"])]
     if misses:
-        reviews = "; ".join(f"<i>{esc(r['question'][:60])}</i> — {MISS_REVIEW.get(r['question'], 'see per-question table')}" for r in misses)
+        reviews = "; ".join(f"<i>{esc(r['question'][:60])}</i> (prompt caching {'off' if k.endswith('off') else 'on'}) — {MISS_REVIEW.get(r['question'], 'see per-question table')}"
+                            for k, r in misses)
         misses_note = f"Misses ({len(misses)}): {reviews}. We report the strict score rather than loosening the grader after the fact."
     else:
         misses_note = "No question missed a required fact in either configuration."
+    gw = DAYS[2]
+    if day_on["cost"] >= gw["cost"]:
+        cache_note = (f"<p>Why the last row costs about the same as the gateway row: in this test both layers replay the same repeated questions, and a gateway replay is already $0. "
+                      f"The answer cache still cuts model calls ({gw['model_calls']} → {day_on['model_calls']}) and returns repeats instantly; the small cost difference comes from "
+                      f"run-to-run variation on the non-repeated questions. We keep the answer cache because it works with any provider and does not depend on the gateway's cache.</p>")
+    else:
+        cache_note = (f"<p>The answer cache adds a further saving on top of the gateway cache ({usd(gw['cost'], 5)} → {usd(day_on['cost'], 5)}) and cuts model calls "
+                      f"{gw['model_calls']} → {day_on['model_calls']}; it also works with any provider.</p>")
+    if day_on["total_seconds"] > gw["total_seconds"]:
+        cache_note += (f"<p>Total wait is not a clean comparison between passes: each pass makes real calls for the {day_on['unique_questions']} first-time questions, "
+                       f"and their latency varies run to run (the prompt-caching pass took {DAYS[1]['total_seconds']:.0f} s vs {day_off['total_seconds']:.0f} s with no caching, "
+                       f"with fewer calls). In the last pass those first-time calls were slower; the {day_on['cache_hits']} answer-cache hits themselves made no model call.</p>")
     org_users = 1_000_000
     org_cost = monthly(per_req_cached, org_users)
     if PILOT:
@@ -392,6 +410,7 @@ def sec_tokenomics() -> str:
 input ${PRICES['input']:.2f}, cached input ${PRICES['cached_input']:.2f}, cache write ${PRICES['cache_write']:.3f}, output ${PRICES['output']:.2f}. The gateway reports cache-write tokens,
 priced slightly above normal input, so caching pays off from the second call with the same prefix — included below. Portkey also keeps a response cache that replays an identical
 request without calling the model; we read the <code>x-portkey-cache-status</code> header and price a HIT at $0, and the benchmark forces real calls except where it tests that cache.</p>
+{img("11_usage_tab.png", "Figure 8 — The app's Usage &amp; Safety tab: its own running count of answers, tokens, cost, cache hits and guard events.")}
 <h3>A typical run</h3>
 {table(["Measured per question (average of " + str(on['questions']) + ")", "Value"], [
     ["Input tokens (all)", f"{tok['input']:,.0f}"],
@@ -422,6 +441,7 @@ request without calling the model; we read the <code>x-portkey-cache-status</cod
 <h3>The four cache layers on a simulated fan day (30 requests, {day_on['unique_questions']} distinct questions)</h3>
 {table(["Configuration", "Cost of 30 requests", "Model calls", "Billed calls", "From answer cache", "Total wait"],
        [[esc(d['label']), usd(d['cost'], 5), d['model_calls'], d['billed_calls'], f"{d['cache_hits']}/30", f"{d['total_seconds']:.0f} s"] for d in DAYS])}
+{cache_note}
 <h3>Did cutting cost hurt quality?</h3>
 {table(["Configuration", "Routing accuracy", "Fact accuracy", "Avg cost", "Avg latency"], [
     ["Prompt caching OFF (unique prefix every call)", f"{off['routing_accuracy']*100:.0f}%", f"{off['fact_accuracy']*100:.0f}%", usd(off['avg_cost'], 6), f"{off['avg_seconds']} s"],
@@ -457,10 +477,10 @@ Each defense below is <b>code</b> that runs no matter what the model says.</p>
 {table(["Test", "Risk", "Result", "Model calls", "Defense that fired"], rows, "small")}
 <p>"Model followed policy" rows were handled by instructions and tool design; the code guards stand behind them and are also tested deterministically
 (<code>python -m pytest</code>: link filter, input screen, disclaimer, date check, budget, data-poisoning guard, playlist fairness, calendar files).</p>
-<div class="grid2">{img("07_block_injection.png", "Figure 8 — Prompt injection refused by the input guard: 0 model calls, $0.")}
-{img("15_report_quarantine.png", "Figure 9 — Data poisoning: an honest report is accepted; a 6-album 'cut' is quarantined and ignored by the model.")}</div>
-<div class="grid2">{img("08_scam_link_refused.png", "Figure 10 — A fan asks for a scalper link: only the official vendor is given.")}
-{img("09_indirect_injection.png", "Figure 11 — Indirect injection: the planted review is flagged as spam; its link and claim are not repeated.")}</div>
+<div class="grid2">{img("07_block_injection.png", "Figure 9 — Prompt injection refused by the input guard: 0 model calls, $0.")}
+{img("15_report_quarantine.png", "Figure 10 — Data poisoning: an honest report is accepted; a 6-album 'cut' is quarantined and ignored by the model.")}</div>
+<div class="grid2">{img("08_scam_link_refused.png", "Figure 11 — A fan asks for a scalper link: only the official vendor is given.")}
+{img("09_indirect_injection.png", "Figure 12 — Indirect injection: the planted review is flagged as spam; its link and claim are not repeated.")}</div>
 </section>"""
 
 
@@ -481,7 +501,7 @@ def sec_impact() -> str:
         people = []
         for p_ in PARTICIPANTS:
             conf = (f"{cell(p_, 'confidence_usual_1to5')} → {cell(p_, 'confidence_lisa_1to5')}" if p_.get("confidence_usual_1to5")
-                    else f"{cell(p_, 'confidence_lisa_1to5')} (usual way: \"{esc(p_.get('confusing_or_wrong', ''))}\")" if p_.get("confidence_lisa_1to5") else "—")
+                    else f"not recorded → {cell(p_, 'confidence_lisa_1to5')}" if p_.get("confidence_lisa_1to5") else "—")
             people.append([f"<b>{esc(p_['name_or_initials'])}</b>", cell(p_, "manual_total_minutes", " min"), esc(p_.get("manual_sources", "—")),
                            cell(p_, "manual_unanswered"), cell(p_, "lisa_total_minutes", " min"), cell(p_, "ease_1to5", "/5"), conf, cell(p_, "would_use")])
         mm, lm = PILOT_SUMMARY["manual_minutes"], PILOT_SUMMARY["lisa_minutes"]
@@ -489,7 +509,7 @@ def sec_impact() -> str:
         head_line = (f"{len(PARTICIPANTS)} K-pop fans ({esc(', '.join(PILOT_SUMMARY['participants']))}) did the four tasks of <code>docs/PILOT_TEST.md</code> "
                      "the usual way first, then with L.I.S.A.")
         if avg_manual:
-            head_line += f" The usual way took <b>{' and '.join(f'{m:.0f}' for m in mm)} minutes</b> (average {avg_manual:.0f} min)"
+            head_line += f" The usual way took <b>{' and '.join(f'{m:.0f}' for m in mm)} minutes</b>"
             pairs = [(p_["name_or_initials"], float(p_["manual_total_minutes"]), float(p_["lisa_total_minutes"]))
                      for p_ in PARTICIPANTS if p_.get("manual_total_minutes") and p_.get("lisa_total_minutes")]
             if pairs:
@@ -509,8 +529,10 @@ def sec_impact() -> str:
                         f"<b>{PILOT_SUMMARY['manual_failed']} of {len(PILOT_SUMMARY['tasks'])} tasks unanswered</b>; with L.I.S.A. every task was done in one app.</p>"
                       + table(["Task", "Usual way: sources", "Usual way: result", "What the participant did", "With L.I.S.A."], [r_[:5] for r_ in rows], "small")
                       + both_quotes
-                      + "<p class=\"caption\">Times are the participants' own totals for all four tasks (self-reported; not per task). "
-                        "Two participants are a small sample: the direction is clear, the size of the effect needs more fans.</p>")
+                      + "<p class=\"caption\"><b>How to read the pilot.</b> Times are the participants' own totals for all four tasks (self-reported; not per task). "
+                        "Both fans did the usual way first, so knowing the tasks may have made the L.I.S.A. round faster. The four tasks were chosen to match what L.I.S.A. covers. "
+                        "For task B, L.I.S.A.'s album count comes from SAMPLE fansign data, so it shows the experience, not a verified cut line. "
+                        "Two participants are a small sample: the direction is clear, the size of the effect needs more fans, timed per task, with the order swapped for half of them.</p>")
     else:
         pilot_html = """<div class="callout"><b>Pilot with a real fan — protocol ready, results to be added.</b> <code>docs/PILOT_TEST.md</code>.</div>"""
     return f"""
@@ -523,7 +545,7 @@ def sec_impact() -> str:
                                         f"({(1 - sum(PILOT_SUMMARY['lisa_minutes']) / sum(PILOT_SUMMARY['manual_minutes'])) * 100:.0f}% less); app response {APP_TIME['total_seconds']:.0f} s"
                                         if PILOT_SUMMARY["manual_minutes"] and PILOT_SUMMARY["lisa_minutes"] and APP_TIME else "see pilot below"),
      "pilot (self-reported) + app response time (measured)"],
-    ["Tasks a real fan could not finish the usual way", f"{PILOT_SUMMARY['manual_failed']} of {len(PILOT_SUMMARY['tasks'])} for HA (fansign album count); all done with L.I.S.A.", "pilot (observed)"],
+    ["Tasks a real fan could not finish the usual way", f"{PILOT_SUMMARY['manual_failed']} of {len(PILOT_SUMMARY['tasks'])} for HA (fansign album count); all four answered with L.I.S.A. (task B on SAMPLE data)", "pilot (observed)"],
     ["Participant ratings", "ease 5/5 from both; confidence in the answer 5/5 with L.I.S.A.; both would use it", "pilot (self-reported)"],
     ["Answer quality", f"{on['fact_accuracy']*100:.0f}% of questions contain every required fact; routing {on['routing_accuracy']*100:.0f}%", "benchmark grader (measured)"],
     ["Cut-line accuracy vs today's rule", f"median error {BT['model_median_abs_err_pct']}% vs {BT['naive_median_abs_err_pct']}% for \"copy the last cut\"; 80% band covered {BT['band_80_coverage_pct']}%; the copy rule under-bought in {BT['naive_underbuys_pct']}% of cases",
@@ -569,13 +591,13 @@ def sec_rubric() -> str:
     return f"""
 <section><h2>Appendix — where the evidence is</h2>
 {table(["Rubric row", "Evidence in this report", "Evidence in the repo"], [
-    ["Novelty + real-world value (Tier 3)", "§2 real users, six pain points with sources, glossary; §3 named products, plain-chatbot test (3/15 vs 94%), five differences; §7 two real fans, 36.5 → 5.5 min; §5 platform-level cost",
+    ["Novelty + real-world value (Tier 3)", f"§2 real users, six pain points with sources, glossary; §3 named products, plain-chatbot test ({BREV['correct']} of {BREV['on_topic_questions']} vs {LISA_ON['reviewed']} of {LISA_ON['n']}), five differences; §7 two real fans, {PILOT_AVG}; §5 platform-level cost",
      "app.py — fansign odds, report form, streaming coach, calendar; evals/baseline_chatbot.py"],
-    ["It works / staff can run it", "Figures 2–11 from the running app", "README (≈3-minute setup), .env lookup here then one level up, tests/ (pytest)"],
+    ["It works / staff can run it", "Figures 2–12 from the running app", "README (≈3-minute setup), .env lookup here then one level up, tests/ (pytest)"],
     ["Look + feel", "Figures 3–7, mobile layout in repo screenshots", "assets/style.css, docs/screenshots/12_mobile.png"],
     ["Agent design", "§4 diagram, roles, design reasons, coverage table, traced run", "lisa/agents.py, lisa/tools.py, evals/results/trace_example.json"],
-    ["Tokenomics", "§5 measured tokens, cost per agent, per user, 100 / 10,000 users, platform view, 7 cost steps, quality check", "evals/benchmark.py, evals/results/benchmark.json"],
-    ["Safety", f"§6 risk table, {passed}/{total} red-team tests, Figures 8–11", "lisa/guardrails.py, lisa/community.py, evals/safety_tests.py, tests/"],
+    ["Tokenomics", "§5 Figure 8 (the app's own usage counters), measured tokens, cost per agent, per user, 100 / 10,000 users, platform view, 7 cost steps, quality check", "evals/benchmark.py, evals/results/benchmark.json"],
+    ["Safety", f"§6 risk table, {passed}/{total} red-team tests, Figures 9–12", "lisa/guardrails.py, lisa/community.py, evals/safety_tests.py, tests/"],
     ["Impact + metrics", "§7 measured latency, quality, backtest, cost; pilot", "evals/backtest_fansign.py, docs/PILOT_TEST.md, docs/pilot_results.csv"],
 ])}
 </section>"""

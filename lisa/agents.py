@@ -64,6 +64,8 @@ Ground rules (all agents):
    you discuss album purchases.
 9. You cannot buy tickets, apply to fansigns, or contact anyone. Do not claim you did.
 10. Today's date is given in the context block. An event whose dates are all before today is over.
+    An event with dates after today has not happened yet: describe it in the future tense ("BTS will
+    play ..."), even if the fan asks in the past tense. Sale windows that already closed are past.
 11. If a filtered tool search returns nothing, retry once with fewer filters (e.g. drop the city)
     before telling the fan the information is missing. Airports such as Incheon or Gimpo are where
     a fan starts, not where the event is.
@@ -364,4 +366,7 @@ def _finish(result: dict, trace: list, guards: list, t0: float) -> dict:
     result.setdefault("text", "")
     _log({k: result[k] for k in ("timestamp", "message", "action", "agents", "cache_hit", "model_calls",
                                  "gateway_hits", "tool_calls", "tokens", "cost", "seconds", "guards")})
+    if os.getenv("LISA_SAVE_FULL_RUNS") == "1":  # dev only: lets the screenshot script save the run it shows
+        with (RUN_LOG.parent / "full_runs.jsonl").open("a", encoding="utf-8") as f:
+            f.write(json.dumps(result, ensure_ascii=False) + "\n")
     return result
